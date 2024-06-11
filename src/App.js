@@ -1,24 +1,23 @@
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import rtlPlugin from "stylis-plugin-rtl"
-import { CacheProvider } from "@emotion/react"
+
+//  Configurations : 
 import { HelmetProvider, Helmet } from 'react-helmet-async';
-import createCache from '@emotion/cache'
+
+// Theme Configs : 
+import { ThemeProvider } from '@mui/material/styles';
+import { theme } from './components/ui/theme';
+import rtlPlugin from "stylis-plugin-rtl"
 import { prefixer } from 'stylis';
+import createCache from '@emotion/cache'
+import { CacheProvider } from "@emotion/react"
+
+// Components :
+import Header from './components/ui/Header';
+
+// CSS Files :
 import './App.css';
-import { Button } from '@mui/material';
 
 
-
-// NOTE Create Theme
-
-const theme = createTheme({
-  direction: 'rtl',
-  typography: {
-    fontFamily: "Vazir,roboto"
-  }
-})
-
-// NOTE Create RTL cache
+// Create RTL cache
 
 const cacneRTL = createCache({
   key: 'muirtl',
@@ -32,9 +31,15 @@ const App = () => {
           <Helmet>
             <title>امیررضا منفرد</title>
           </Helmet>
-          <div className="App">
-            <Button variant='contained'>کلیک کن</Button>
-          </div>
+          <Header />
+          {[...new Array(200)]
+            .map(
+              () => `Cras mattis consectetur purus sit amet fermentum.
+Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`,
+            )
+            .join('\n')}
         </HelmetProvider>
       </ThemeProvider>
     </CacheProvider>

@@ -1,6 +1,17 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- Importend Informations : 
+
+
+///////COLOR Palette
+
+#8ec07c	(142,192,124) Green
+#458588	(69,133,136) Blue
+#d79921	(215,153,33) Yellow
+#cc241d	(204,36,29) Red
+#3c3836	(60,56,54) Brown
+
+////////
+ -->
 
 ## Available Scripts
 
