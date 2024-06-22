@@ -1,49 +1,45 @@
+import { useState } from 'react';
 
-//  Configurations : 
-import { HelmetProvider, Helmet } from 'react-helmet-async';
+import { Typography } from '@mui/material';
 
-// Theme Configs : 
-import { ThemeProvider } from '@mui/material/styles';
-import { theme } from './components/ui/theme';
-import rtlPlugin from "stylis-plugin-rtl"
-import { prefixer } from 'stylis';
-import createCache from '@emotion/cache'
-import { CacheProvider } from "@emotion/react"
+import { SideBar, TabPanel } from './components/sidebar';
 
-// Components :
-import Header from './components/ui/Header';
+import SideBarContainer from './containers/SideBarContainer';
+import ContentContainer from './containers/ContentContainer';
 
-// CSS Files :
-import './App.css';
+import MainLayout from './layouts/MainLayout';
 
-
-// Create RTL cache
-
-const cacneRTL = createCache({
-  key: 'muirtl',
-  stylisPlugins: [prefixer, rtlPlugin]
-})
 const App = () => {
+  const [value, setValue] = useState(0);
+  const handleChange = (event, newValue) => {
+    setValue(newValue)
+  }
   return (
-    <CacheProvider value={cacneRTL}>
-      <ThemeProvider theme={theme}>
-        <HelmetProvider>
-          <Helmet>
-            <title>امیررضا منفرد</title>
-          </Helmet>
-          <Header />
-          {[...new Array(200)]
-            .map(
-              () => `Cras mattis consectetur purus sit amet fermentum.
-Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`,
-            )
-            .join('\n')}
-        </HelmetProvider>
-      </ThemeProvider>
-    </CacheProvider>
-
+    <MainLayout>
+      <SideBarContainer>
+        <SideBar value={value} handleChange={handleChange} />
+      </SideBarContainer>
+      <ContentContainer >
+        <TabPanel value={value} index={0} >
+          <Typography>صفحه اصلی</Typography>
+        </TabPanel>
+        <TabPanel value={value} index={1} >
+          <Typography>درباره من</Typography>
+        </TabPanel>
+        <TabPanel value={value} index={2} >
+          <Typography>رزومه من</Typography>
+        </TabPanel>
+        <TabPanel value={value} index={3} >
+          <Typography>نمونه کارها</Typography>
+        </TabPanel>
+        <TabPanel value={value} index={4} >
+          <Typography>نظرات</Typography>
+        </TabPanel>
+        <TabPanel value={value} index={5} >
+          <Typography>ارتباط با من</Typography>
+        </TabPanel>
+      </ContentContainer>
+    </MainLayout>
   );
 }
 

@@ -20,3 +20,8 @@
     url("Roboto-Black.ttf") format("truetype"),
     url("Roboto-Black.svg#Roboto-Black") format("svg");
 }
+
+body {
+  margin: 0;
+  padding: 0;
+}
