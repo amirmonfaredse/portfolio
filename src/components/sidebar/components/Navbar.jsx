@@ -24,6 +24,12 @@ const Navbar = () => {
             icon={tab.icon}
             iconPosition="start"
             onClick={onDrawerToggler}
+            sx={{
+              color: "purple.main",
+              "&.Mui-selected": {
+                color: "pink.main",
+              },
+            }}
             {...tab}
           />
         );

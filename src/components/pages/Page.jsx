@@ -11,7 +11,16 @@ const Page = (props) => {
       {...others}
     >
       {pageNumber === index && (
-        <Box calssName='Page' sx={{ height: "100vh", overflowY: "auto" }}>{children}</Box>
+        <Box
+          calssName="Page"
+          sx={{
+            height: "100vh",
+            overflowY: "auto",
+            bgcolor: "currentLine.main",
+          }}
+        >
+          {children}
+        </Box>
       )}
     </div>
   );

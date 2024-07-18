@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 
 import MainLayout from "./components/base/MainLayout";
 import { PageContainer } from "./components/pages";
 import MainContext from "./context/context";
 import { SidebarViewManager } from "./components/sidebar";
+
 const App = () => {
   const [pageNumber, setPageNumber] = useState(0);
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -15,6 +16,8 @@ const App = () => {
   const onDrawerToggler = () => {
     setDrawerOpen(!drawerOpen);
   };
+
+ 
 
   return (
     <MainContext.Provider

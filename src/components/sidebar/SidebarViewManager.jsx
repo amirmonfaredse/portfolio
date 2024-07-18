@@ -19,7 +19,7 @@ const SidebarViewManager = () => {
                     sx={{
                         "& .MuiDrawer-paper": {
                             width: 320,
-                            bgcolor: "primary.main",
+                            bgcolor: "background.main",
                         },
                         display: {
                             xs: "block",
@@ -37,7 +37,7 @@ const SidebarViewManager = () => {
                     lg={2}
                     xl={2}
                     sx={{
-                        backgroundColor: "primary.main",
+                        backgroundColor: "background.main",
                         height: "100vh",
                         overflowY: "auto",
                         overflowX: "hidden",

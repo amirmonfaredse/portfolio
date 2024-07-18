@@ -1,5 +1,6 @@
-import { Avatar, Typography } from "@mui/material";
+import { Avatar, Box, Typography } from "@mui/material";
 import AvatarImg from "../../../assets/images/Avatar.jpg";
+import { Telegram, Instagram, GitHub, LinkedIn } from "@mui/icons-material";
 const SideberHeader = () => {
   return (
     <>
@@ -14,12 +15,18 @@ const SideberHeader = () => {
       >
         AM
       </Avatar>
-      <Typography variant="h6" sx={{ color: "secondary.light" }}>
+      <Typography variant="h6" sx={{ color: "purple.main" }}>
         امیررضا منفرد
       </Typography>
-      <Typography variant="caption" sx={{ color: "secondary.main" }}>
-        برنامه نویس وب
+      <Typography variant="caption" sx={{ color: "pink.main" }}>
+        توسعه دهنده JS
       </Typography>
+      <Box sx={{ mt: 2 }}>
+        <Telegram sx={{ color: "orange.main", mx: 1 }} />
+        <Instagram sx={{ color: "orange.main", mx: 1 }} />
+        <GitHub sx={{ color: "orange.main", mx: 1 }} />
+        <LinkedIn sx={{ color: "orange.main", mx: 1 }} />
+      </Box>
     </>
   );
 };

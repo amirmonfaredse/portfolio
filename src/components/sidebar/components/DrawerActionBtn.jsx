@@ -22,8 +22,8 @@ const DrewerActionBtn = () => {
         size="small"
         sx={{
           m: 2,
-          bgcolor: "success.main",
-          color: "secondary.main",
+          bgcolor: "background.main",
+          color: "purple.main",
         }}
         onClick={onDrawerToggler}
       >

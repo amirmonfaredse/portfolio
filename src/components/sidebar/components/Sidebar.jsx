@@ -15,9 +15,9 @@ const Sidebar = () => {
         }}
       >
         <SideberHeader />
-        <Divider variant="middle" color={"secondary.dark"} sx={{ my: 2 }} />
+        <Divider variant="middle" color={"cyan.main"} sx={{ my: 2 }} />
         <Navbar />
-        <Divider variant="middle" color={"secondary.dark"} sx={{ mt: 2 }} />
+        <Divider variant="middle" color={"cyan.dark"} sx={{ mt: 2 }} />
         <Box
           sx={{
             display: "flex",
@@ -27,13 +27,13 @@ const Sidebar = () => {
             my: 1,
           }}
         >
-          <Typography variant="subtitle2" color="info" sx={{ my: 2 }}>
+          <Typography variant="subtitle2" color="orange.main" sx={{ my: 2 }}>
             طراحی شده با{"   "}
             <FavoriteRounded
               sx={{
                 fontSize: 15,
                 verticalAlign: "top",
-                color: "secondary.main",
+                color: "red.main",
               }}
             />
           </Typography>

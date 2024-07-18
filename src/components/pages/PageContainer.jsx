@@ -1,11 +1,10 @@
 import { useContext } from "react";
 
-import { Typography } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 
 import SwipeableViews from "react-swipeable-views";
 
-import { About, Home, Page } from ".";
+import { About, Home, Page, MySkills, Project, BeyondCode, ContactMe } from ".";
 import { DrawerActionBtn } from "../sidebar";
 
 import context from "../../context/context";
@@ -15,14 +14,7 @@ const PageContainer = () => {
   return (
     <>
       <DrawerActionBtn />
-      <Grid
-        xs={12}
-        sm={12}
-        md={9}
-        lg={10}
-        xl={10}
-        sx={{ backgroundColor: "info.main" }}
-      >
+      <Grid xs={12} sm={12} md={9} lg={10} xl={10}>
         <SwipeableViews index={pageNumber} onChangeIndex={onPageNumber}>
           <Page pageNumber={pageNumber} index={0}>
             <Home />
@@ -31,16 +23,16 @@ const PageContainer = () => {
             <About />
           </Page>
           <Page pageNumber={pageNumber} index={2}>
-            <Typography>رزومه من</Typography>
+            <MySkills />
           </Page>
           <Page pageNumber={pageNumber} index={3}>
-            <Typography>نمونه کارها</Typography>
+            <Project />
           </Page>
           <Page pageNumber={pageNumber} index={4}>
-            <Typography>نظرات</Typography>
+            <BeyondCode />
           </Page>
           <Page pageNumber={pageNumber} index={5}>
-            <Typography>ارتباط با من</Typography>
+            <ContactMe />
           </Page>
         </SwipeableViews>
       </Grid>

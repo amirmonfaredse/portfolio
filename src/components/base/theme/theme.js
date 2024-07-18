@@ -3,48 +3,47 @@ import { createTheme } from "@mui/material";
 const theme = createTheme({
   direction: "rtl",
   palette: {
-    mode: "light",
-    common: {
-      black: "#333",
-      white: "#000",
+    mode: "dark",
+    background: {
+      main: "#282A36",
+      galssy: "#282a36b0",
     },
-    primary: {
-      main: "#458588",
+    currentLine: {
+      main: "#44475A",
     },
-    secondary: {
-      main: "#d79921",
-    },
-    success: {
-      main: "#3c3836",
-    },
-    error: {
-      main: "#cc241d",
+    foreground: {
+      main: "#F8F8F2",
     },
 
-    info: {
-      main: "#8ec07c",
+    comment: {
+      main: "#373a42",
     },
-    action: {
-      active: "#ff5722",
-      selected: "error.main",
+    darkBlue: {
+      main: "#191f5c",
     },
-    htmlIcon: {
-      main: "#F16529",
+    darkPurple: {
+      main: "#2a2139",
     },
-    cssIcon: {
-      main: "#2062af",
+    cyan: {
+      main: "#8BE9FD",
     },
-    jsIcon: {
-      main: "#F7DF1E",
+    green: {
+      main: "#50FA7B",
     },
-    gitHubIcon: {
-      main: "#000",
+    orange: {
+      main: "#FFB86C",
     },
-    reactIcon: {
-      main: "#00D8FF",
+    pink: {
+      main: "#FF79C6",
     },
-    bootstarpIcon: {
-      main: "#9013FE",
+    purple: {
+      main: "#BD93F9",
+    },
+    red: {
+      main: "#FF5555",
+    },
+    yellow: {
+      main: "#F1FA8C",
     },
   },
   components: {
@@ -52,9 +51,6 @@ const theme = createTheme({
     MuiTab: {
       styleOverrides: {
         root: {
-          "&.Mui-selected": {
-            color: "#d79921",
-          },
           "&.MuiTab-root": {
             minHeight: 55,
           },
@@ -64,7 +60,7 @@ const theme = createTheme({
     MuiTabs: {
       styleOverrides: {
         indicator: {
-          backgroundColor: "#d79921",
+          backgroundColor: "#FF79C6",
         },
       },
     },
