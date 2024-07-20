@@ -5,11 +5,10 @@ import {
   Typography,
 } from "@mui/material";
 import { useId } from "react";
-
 const CustomAccordion = ({ children, title }) => {
   const id = useId();
   return (
-    <Accordion
+      <Accordion
       sx={{
         direction: "ltr",
         bgcolor: "background.main",

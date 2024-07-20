@@ -1,8 +1,8 @@
-import { BarChart } from "@mui/x-charts/BarChart";
-import theme from "../../../base/theme/theme";
-import { Box, Button, Typography, Link } from "@mui/material";
+import { BarChart } from "@mui/x-charts";
+import { Button, Typography } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
-const MBTIChart = () => {
+import theme from "../../../base/theme/theme";
+const BarOnChart = () => {
   return (
     <Grid
       container
@@ -18,7 +18,7 @@ const MBTIChart = () => {
       <Grid
         item
         xs={12}
-        lg={6}
+        lg={4}
         sx={{
           color: "orange.main",
           display: "flex",
@@ -30,54 +30,49 @@ const MBTIChart = () => {
         textAlign="center"
       >
         <Button color="orange">
-          <Typography variant="h5">ESTJ</Typography>
+          <Typography variant="h5">نمره ی کل هوش هیجانی من : 89</Typography>
         </Button>
-        <Link
-          target="_blank"
-          rel="noreferrer"
-          underline="none"
-          color="pink.main"
-          href="https://www.16personalities.com/estj-personality"
-        >
-          <Button color="pink">
-            <Typography variant="h6">درمورد ESTJ ها بیشتر بدانید</Typography>
-          </Button>
-        </Link>
+
         <Button variant="outlined" color="purple">
           <Typography variant="h6" color="purple.main">
             دانلود تفسیر کامل از سایت جاب ویژن
           </Typography>
         </Button>
-      </Grid>
+      </Grid>{" "}
       <Grid
         item
         xs={12}
-        lg={6}
+        lg={8}
         sx={{
           height: 200,
           width: 1,
         }}
       >
         <BarChart
-          sx={{
-            "& .MuiBarElement-root": {
-              "& .MuiBarLabel-root": {
-                color: "background.main",
-              },
-            },
-          }}
-          barLabel="value"
           xAxis={[
             {
-              data: ["I", "N", "F", "P", "E", "S", "T", "J"],
               scaleType: "band",
-              categoryGapRatio: 0.3,
+              data: [
+                "ادراک از خود",
+                "تصمیم گیری ",
+                "خودابزاری",
+                "روابط بین فردی",
+                "کنترل استرس",
+              ],
+              barGapRatio: 0.3,
             },
           ]}
+          barLabel="value"
           series={[
             {
-              data: [43, 35, 37, 45, 57, 65, 63, 55],
-              color: theme.palette.purple.main,
+              data: [75, 76, 85, 62, 82],
+              label: "نمره ی من",
+              color: theme.palette.darkBlue.main,
+            },
+            {
+              data: [80, 76, 87, 85, 82],
+              color: theme.palette.pink.main,
+              label: "میانگین",
             },
           ]}
         />
@@ -85,5 +80,4 @@ const MBTIChart = () => {
     </Grid>
   );
 };
-
-export default MBTIChart;
+export default BarOnChart;

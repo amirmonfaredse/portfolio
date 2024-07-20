@@ -1,8 +1,9 @@
-import { BarChart } from "@mui/x-charts/BarChart";
-import theme from "../../../base/theme/theme";
+import { BarChart } from "@mui/x-charts";
 import { Box, Button, Typography, Link } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
-const MBTIChart = () => {
+import theme from "../../../base/theme/theme";
+
+const NeoChart = () => {
   return (
     <Grid
       container
@@ -18,7 +19,7 @@ const MBTIChart = () => {
       <Grid
         item
         xs={12}
-        lg={6}
+        lg={4}
         sx={{
           color: "orange.main",
           display: "flex",
@@ -29,20 +30,6 @@ const MBTIChart = () => {
         }}
         textAlign="center"
       >
-        <Button color="orange">
-          <Typography variant="h5">ESTJ</Typography>
-        </Button>
-        <Link
-          target="_blank"
-          rel="noreferrer"
-          underline="none"
-          color="pink.main"
-          href="https://www.16personalities.com/estj-personality"
-        >
-          <Button color="pink">
-            <Typography variant="h6">درمورد ESTJ ها بیشتر بدانید</Typography>
-          </Button>
-        </Link>
         <Button variant="outlined" color="purple">
           <Typography variant="h6" color="purple.main">
             دانلود تفسیر کامل از سایت جاب ویژن
@@ -52,32 +39,37 @@ const MBTIChart = () => {
       <Grid
         item
         xs={12}
-        lg={6}
+        lg={8}
         sx={{
           height: 200,
           width: 1,
         }}
       >
         <BarChart
-          sx={{
-            "& .MuiBarElement-root": {
-              "& .MuiBarLabel-root": {
-                color: "background.main",
-              },
-            },
-          }}
-          barLabel="value"
           xAxis={[
             {
-              data: ["I", "N", "F", "P", "E", "S", "T", "J"],
               scaleType: "band",
-              categoryGapRatio: 0.3,
+              data: [
+                "برونگرایی",
+                "بی ثباتی عاطفی",
+                "توافق پذیری",
+                "انعطاف پذیری",
+                "وظیفه شناسی",
+              ],
+              barGapRatio: 0.3,
             },
           ]}
+          barLabel="value"
           series={[
             {
-              data: [43, 35, 37, 45, 57, 65, 63, 55],
-              color: theme.palette.purple.main,
+              data: [90, 50, 67, 53, 47],
+              label: "نمره ی من",
+              color: theme.palette.green.main,
+            },
+            {
+              data: [87, 76, 75, 60, 40],
+              color: theme.palette.darkPurple.main,
+              label: "میانگین",
             },
           ]}
         />
@@ -85,5 +77,4 @@ const MBTIChart = () => {
     </Grid>
   );
 };
-
-export default MBTIChart;
+export default NeoChart;

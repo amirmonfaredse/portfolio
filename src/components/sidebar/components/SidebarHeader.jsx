@@ -1,4 +1,4 @@
-import { Avatar, Box, Typography } from "@mui/material";
+import { Avatar, Box, Link, Typography } from "@mui/material";
 import AvatarImg from "../../../assets/images/Avatar.jpg";
 import { Telegram, Instagram, GitHub, LinkedIn } from "@mui/icons-material";
 const SideberHeader = () => {
@@ -22,10 +22,31 @@ const SideberHeader = () => {
         توسعه دهنده JS
       </Typography>
       <Box sx={{ mt: 2 }}>
-        <Telegram sx={{ color: "orange.main", mx: 1 }} />
-        <Instagram sx={{ color: "orange.main", mx: 1 }} />
-        <GitHub sx={{ color: "orange.main", mx: 1 }} />
-        <LinkedIn sx={{ color: "orange.main", mx: 1 }} />
+        <Link href="https://t.me/amirrezamnf" rel="noreferrer" target="_blank">
+          <Telegram sx={{ color: "orange.main", mx: 1 }} />
+        </Link>
+        <Link
+          href="https://www.instagram.com/a.reza.m.s/"
+          rel="noreferrer"
+          target="_blank"
+        >
+          <Instagram sx={{ color: "orange.main", mx: 1 }} />
+        </Link>
+        <Link
+          href="https://www.instagram.com/a.reza.m.s/"
+          rel="noreferrer"
+          target="_blank"
+        ></Link>
+        <Link href="https://www.linkedin.com/" rel="noreferrer" target="_blank">
+          <LinkedIn sx={{ color: "orange.main", mx: 1 }} />
+        </Link>
+        <Link
+          href="https://github.com/amirmonfaredse"
+          rel="noreferrer"
+          target="_blank"
+        >
+          <GitHub sx={{ color: "orange.main", mx: 1 }} />
+        </Link>
       </Box>
     </>
   );

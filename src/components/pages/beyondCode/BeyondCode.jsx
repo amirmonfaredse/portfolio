@@ -1,6 +1,5 @@
 import { Box, Button, Grid } from "@mui/material";
 import { MenuBook, SignalCellularAlt } from "@mui/icons-material";
-import { PieChart } from "@mui/x-charts/PieChart";
 import { useState } from "react";
 import ModalDialog from "./ModalDialog";
 import CustomDivider from "../../utils/CustomDivider";
@@ -13,8 +12,11 @@ import {
   TeamWorkSVG,
   PrioritySVG,
 } from "../../../assets/svgIcons";
-import theme from "../../base/theme/theme";
 import MBTIChart from "./charts/MBTIChart";
+import HollandChart from "./charts/HollandChart";
+import BarOnChart from "./charts/BarOnChart";
+import NeoChart from "./charts/NeoChart";
+import AptitudeChart from "./charts/AptitudeChart";
 
 const BeyondCode = () => {
   const [openDialog, setOpenDialog] = useState(false);
@@ -61,11 +63,11 @@ const BeyondCode = () => {
       icon: <TimeManageSVG />,
     },
   ];
-  
+
   return (
     <>
       <Grid container>
-        <Box sx={{ mt: 2 }}>
+        <Box sx={{ mt: 2 ,width :1}}>
           <CustomDivider
             icon={<MenuBook color="purple.main" />}
             title="مهارت های نرم"
@@ -128,7 +130,7 @@ const BeyondCode = () => {
             onClickDialog={onClickDialog}
           />
           <CustomDivider
-            icon={<SignalCellularAlt color="pink" />}
+            icon={<SignalCellularAlt color="darkPurple" />}
             title="تست های شخصیت"
             bgColor="purple.main"
             color="background.main"
@@ -144,105 +146,23 @@ const BeyondCode = () => {
             }}
           >
             <Grid xs={12}>
-              <CustomAccordion title="تست هوش هیجانی Bar-On"></CustomAccordion>
+              <CustomAccordion title="تست هوش هیجانی Bar-On">
+                <BarOnChart />
+              </CustomAccordion>
               <CustomAccordion title="تست شخصیت شناسی MBTI">
-                <MBTIChart/>
+                <MBTIChart />
               </CustomAccordion>
               <CustomAccordion title="تست شخصیت شناسی NEO">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
-                ipsum explicabo hic rem assumenda odit. Officia, reprehenderit
-                doloremque consequatur illo eius sunt aliquid nostrum mollitia
-                temporibus, animi earum pariatur sapiente?
+                <NeoChart />
               </CustomAccordion>
               <CustomAccordion title="تست هوش های چندگانه">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
-                ipsum explicabo hic rem assumenda odit. Officia, reprehenderit
-                doloremque consequatur illo eius sunt aliquid nostrum mollitia
-                temporibus, animi earum pariatur sapiente?
+                <AptitudeChart />
               </CustomAccordion>
               <CustomAccordion title="تیپ سنجی شغلی Holland">
-                <PieChart
-                  width={400}
-                  height={200}
-                  series={[
-                    {
-                      data: [
-                        {
-                          id: 0,
-                          value: 43,
-                          label: "I",
-                          color: theme.palette.red.main,
-                        },
-                        {
-                          id: 1,
-                          value: 35,
-                          label: "N",
-                          color: theme.palette.orange.main,
-                        },
-                        {
-                          id: 2,
-                          value: 37,
-                          label: "F",
-                          color: theme.palette.green.main,
-                        },
-                        {
-                          id: 3,
-                          value: 45,
-                          label: "P",
-                          color: theme.palette.cyan.main,
-                        },
-                        {
-                          id: 4,
-                          value: 57,
-                          label: "E",
-                          color: theme.palette.foreground.main,
-                        },
-                        {
-                          id: 5,
-                          value: 65,
-                          label: "S",
-                          color: theme.palette.purple.main,
-                        },
-                        {
-                          id: 6,
-                          value: 63,
-                          label: "T",
-                          color: theme.palette.pink.main,
-                        },
-                        {
-                          id: 7,
-                          value: 55,
-                          label: "J",
-                          color: theme.palette.yellow.main,
-                        },
-                      ],
-                      innerRadius: 2,
-                      paddingAngle: 2,
-                      cornerRadius: 10,
-                      border: 0,
-                    },
-                  ]}
-                />
+                <HollandChart />
               </CustomAccordion>
             </Grid>
           </Grid>
-          <CustomDivider
-            icon={<SignalCellularAlt color="yellow" />}
-            title="شغل ها و مهارت ها"
-            bgColor="background.main"
-            color="pink.main"
-          />
-          <Grid
-            item
-            sx={{
-              width: 1,
-              my: 8,
-              px: 5,
-              display: "flex",
-              justifyContent: "center",
-              gap: 2,
-            }}
-          ></Grid>
         </Box>
       </Grid>
     </>
