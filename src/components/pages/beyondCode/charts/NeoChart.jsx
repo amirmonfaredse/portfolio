@@ -2,7 +2,14 @@ import { BarChart } from "@mui/x-charts";
 import { Box, Button, Typography, Link } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import theme from "../../../base/theme/theme";
-
+const gridSx1 = {
+  color: "orange.main",
+  display: "flex",
+  flexDirection: "column",
+  alignContent: "center",
+  justifyContent: "center",
+  gap: 2,
+};
 const NeoChart = () => {
   return (
     <Grid
@@ -16,20 +23,7 @@ const NeoChart = () => {
         },
       }}
     >
-      <Grid
-        item
-        xs={12}
-        lg={4}
-        sx={{
-          color: "orange.main",
-          display: "flex",
-          flexDirection: "column",
-          alignContent: "center",
-          justifyContent: "center",
-          gap: 2,
-        }}
-        textAlign="center"
-      >
+      <Grid item xs={12} lg={4} sx={gridSx1} textAlign="center">
         <Button variant="outlined" color="purple">
           <Typography variant="h6" color="purple.main">
             دانلود تفسیر کامل از سایت جاب ویژن

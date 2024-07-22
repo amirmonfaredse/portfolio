@@ -14,7 +14,6 @@ const theme = createTheme({
     foreground: {
       main: "#F8F8F2",
     },
-
     comment: {
       main: "#373a42",
     },

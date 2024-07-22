@@ -2,6 +2,14 @@ import { Box, Button, Typography, Link } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import { PieChart } from "@mui/x-charts";
 import theme from "../../../base/theme/theme";
+const gridSx1 = {
+  color: "orange.main",
+  display: "flex",
+  flexDirection: "column",
+  alignContent: "center",
+  justifyContent: "center",
+  my: 2,
+};
 const HollandChart = () => {
   return (
     <Grid
@@ -12,19 +20,7 @@ const HollandChart = () => {
         flexWrap: "wrap",
       }}
     >
-      <Grid
-        item
-        xs={12}
-        sx={{
-          color: "orange.main",
-          display: "flex",
-          flexDirection: "column",
-          alignContent: "center",
-          justifyContent: "center",
-          my: 2,
-        }}
-        textAlign="center"
-      >
+      <Grid item xs={12} sx={gridSx1} textAlign="center">
         <Link
           target="_blank"
           rel="noreferrer"

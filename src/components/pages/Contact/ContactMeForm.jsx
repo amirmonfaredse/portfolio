@@ -4,9 +4,7 @@ import {
   Card,
   CardActions,
   Container,
-  InputAdornment,
   Link,
-  TextField,
 } from "@mui/material";
 import {
   Person2Rounded,
@@ -21,6 +19,33 @@ import Grid from "@mui/material/Unstable_Grid2";
 import { userSchema } from "./validation/userSchema";
 import { Suspense } from "react";
 import { useFormik } from "formik";
+import CustomField from "./CustomField";
+const gridSx1 = {
+  display: "felx",
+  alignItems: "center",
+  justifyContent: "center",
+};
+const cardSx1 = {
+  width: {
+    xs: 400,
+    md: 100,
+  },
+  height: {
+    xs: 100,
+    md: 400,
+  },
+  bgcolor: "transparent",
+  borderRadius: 30,
+  p: 5,
+  gap: 3,
+  display: "flex",
+  alignItems: "center",
+  flexDirection: {
+    xs: "row",
+    md: "column",
+  },
+  justifyContent: "center",
+};
 const ContactMeForm = () => {
   const userInitailValue = {
     fullName: "",
@@ -44,21 +69,10 @@ const ContactMeForm = () => {
           <form autoComplete="off" onSubmit={formik.handleSubmit}>
             <Card sx={{ bgcolor: "darkPurple.main", p: 2 }}>
               <Box sx={{ my: 3 }}>
-                <TextField
-                  type="text"
-                  fullWidth
+                <CustomField
                   label="نام"
                   name="fullName"
-                  variant="outlined"
-                  size="small"
-                  color="purple"
-                  InputProps={{
-                    endAdornment: (
-                      <InputAdornment position="end">
-                        <Person2Rounded color="pink" />
-                      </InputAdornment>
-                    ),
-                  }}
+                  icon={<Person2Rounded color="pink" />}
                   helperText={
                     formik.touched.fullName ? formik.errors.fullName : null
                   }
@@ -70,21 +84,11 @@ const ContactMeForm = () => {
                 />
               </Box>
               <Box sx={{ my: 3 }}>
-                <TextField
+                <CustomField
                   type="email"
-                  fullWidth
                   label="ایمیل"
                   name="email"
-                  variant="outlined"
-                  size="small"
-                  color="purple"
-                  InputProps={{
-                    endAdornment: (
-                      <InputAdornment position="end">
-                        <AlternateEmailRounded color="pink" />
-                      </InputAdornment>
-                    ),
-                  }}
+                  icon={<AlternateEmailRounded color="pink" />}
                   helperText={formik.touched.email ? formik.errors.email : null}
                   error={Boolean(formik.touched.email && formik.errors.email)}
                   value={formik.values?.email}
@@ -92,21 +96,10 @@ const ContactMeForm = () => {
                 />
               </Box>
               <Box sx={{ my: 3 }}>
-                <TextField
-                  type="text"
-                  fullWidth
+                <CustomField
                   label="موضوع"
                   name="subject"
-                  variant="outlined"
-                  size="small"
-                  color="purple"
-                  InputProps={{
-                    endAdornment: (
-                      <InputAdornment position="end">
-                        <SubjectRounded color="pink" />
-                      </InputAdornment>
-                    ),
-                  }}
+                  icon={<SubjectRounded color="pink" />}
                   helperText={
                     formik.touched.subject ? formik.errors.subject : null
                   }
@@ -118,16 +111,11 @@ const ContactMeForm = () => {
                 />
               </Box>
               <Box sx={{ my: 3 }}>
-                <TextField
-                  type="text"
-                  fullWidth
+                <CustomField
                   label="متن پیام"
                   name="textArea"
-                  variant="outlined"
-                  size="small"
                   multiline
                   rows={6}
-                  color="purple"
                   helperText={
                     formik.touched.textArea ? formik.errors.textArea : null
                   }
@@ -153,38 +141,8 @@ const ContactMeForm = () => {
             </Card>
           </form>
         </Grid>
-        <Grid
-          xs={12}
-          lg={6}
-          sx={{
-            display: "felx",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <Card
-            sx={{
-              width: {
-                xs: 400,
-                md: 100,
-              },
-              height: {
-                xs: 100,
-                md: 400,
-              },
-              bgcolor: "transparent",
-              borderRadius: 30,
-              p: 5,
-              gap: 3,
-              display: "flex",
-              alignItems: "center",
-              flexDirection: {
-                xs: "row",
-                md: "column",
-              },
-              justifyContent: "center",
-            }}
-          >
+        <Grid xs={12} lg={6} sx={gridSx1}>
+          <Card sx={cardSx1}>
             <Link
               href="https://t.me/amirrezamnf"
               rel="noreferrer"

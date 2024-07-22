@@ -1,4 +1,4 @@
-import MuiSVG from "../../../../assets/svgIcons/MuiSVG";
+import MuiSVG from "../../../../assets/svgIcons/programmingSVG/MuiSVG";
 import { IconButton, Tooltip } from "@mui/material";
 
 const MuiToolTip  = () => {

@@ -10,7 +10,30 @@ import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadFull } from "tsparticles";
 
 import { particlesOptions } from "../../../constants/particles.options";
-
+const boxSx1 = {
+  background: `url(${MainBackground})`,
+  backgroundSize: "cover",
+  backgroundPosition: "bottom",
+  backgroundRepeat: "no-repeat",
+  height: "100vh",
+  display: "flex",
+  filter: "contrast(100%)",
+  flexDirection: "column",
+  justifyContent: "start",
+  alignItems: "center",
+  pt: 2,
+};
+const paperSx1 = {
+  width: 400,
+  height: 150,
+  display: "flex",
+  justifyContent: "center",
+  flexDirection: "column",
+  alignItems: "start",
+  bgcolor: "background.galssy",
+  backdropFilter: "blur(10px)",
+  mr: 2,
+};
 const Home = () => {
   const [init, setInit] = useState(false);
   const [slide, setSlide] = useState(false);
@@ -66,21 +89,7 @@ const Home = () => {
 
   return (
     <>
-      <Box
-        sx={{
-          background: `url(${MainBackground})`,
-          backgroundSize: "cover",
-          backgroundPosition: "bottom",
-          backgroundRepeat: "no-repeat",
-          height: "100vh",
-          display: "flex",
-          filter: "contrast(100%)",
-          flexDirection: "column",
-          justifyContent: "start",
-          alignItems: "center",
-          pt: 2,
-        }}
-      >
+      <Box sx={boxSx1}>
         {init && (
           <Particles
             id="tsparticles"
@@ -90,20 +99,7 @@ const Home = () => {
         )}
 
         <Slide in={slide}>
-          <Paper
-            elevation={1}
-            sx={{
-              width: 400,
-              height: 150,
-              display: "flex",
-              justifyContent: "center",
-              flexDirection: "column",
-              alignItems: "start",
-              bgcolor: "background.galssy",
-              backdropFilter: "blur(10px)",
-              mr: 2,
-            }}
-          >
+          <Paper elevation={1} sx={paperSx1}>
             <Typography
               variant="h5"
               ref={nameEl}

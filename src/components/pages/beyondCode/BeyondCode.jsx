@@ -17,7 +17,38 @@ import HollandChart from "./charts/HollandChart";
 import BarOnChart from "./charts/BarOnChart";
 import NeoChart from "./charts/NeoChart";
 import AptitudeChart from "./charts/AptitudeChart";
-
+import { Helmet } from "react-helmet-async";
+const gridSx1 = {
+  width: {
+    sm: 1,
+    lg: "60%",
+  },
+  mx: {
+    sm: "none",
+    lg: "auto",
+  },
+  display: "flex",
+  justifyContent: "center",
+  my: 8,
+};
+const btnSx1 = {
+  width: 140,
+  p: 2,
+  color: "foreground.main",
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
+  gap: 2,
+  borderRadius: "50%",
+};
+const gridSx2 = {
+  width: 1,
+  my: 8,
+  px: 5,
+  display: "flex",
+  justifyContent: "left",
+};
 const BeyondCode = () => {
   const [openDialog, setOpenDialog] = useState(false);
   const [dialogData, setDialogData] = useState({});
@@ -66,30 +97,18 @@ const BeyondCode = () => {
 
   return (
     <>
+      <Helmet>
+        <title>من فراتر از کد</title>
+      </Helmet>
       <Grid container>
-        <Box sx={{ mt: 2 ,width :1}}>
+        <Box sx={{ mt: 2, width: 1 }}>
           <CustomDivider
             icon={<MenuBook color="purple.main" />}
             title="مهارت های نرم"
             bgColor="orange.main"
             color="darkPurple.main"
           />
-          <Grid
-            container
-            sx={{
-              width: {
-                sm: 1,
-                lg: "60%",
-              },
-              mx: {
-                sm: "none",
-                lg: "auto",
-              },
-              display: "flex",
-              justifyContent: "center",
-              my: 8,
-            }}
-          >
+          <Grid container sx={gridSx1}>
             {softSkillsData.map((data) => (
               <Grid
                 item
@@ -106,17 +125,7 @@ const BeyondCode = () => {
                     onClickDialog();
                     setDialogData(data);
                   }}
-                  sx={{
-                    width: 140,
-                    p: 2,
-                    color: "foreground.main",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    gap: 2,
-                    borderRadius: "50%",
-                  }}
+                  sx={btnSx1}
                 >
                   {data.icon || null}
                   {data.name}
@@ -135,16 +144,7 @@ const BeyondCode = () => {
             bgColor="purple.main"
             color="background.main"
           />
-          <Grid
-            item
-            sx={{
-              width: 1,
-              my: 8,
-              px: 5,
-              display: "flex",
-              justifyContent: "left",
-            }}
-          >
+          <Grid item sx={gridSx2}>
             <Grid xs={12}>
               <CustomAccordion title="تست هوش هیجانی Bar-On">
                 <BarOnChart />

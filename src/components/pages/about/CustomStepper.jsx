@@ -7,41 +7,33 @@ import {
   StepIcon,
 } from "@mui/material";
 import { CheckRounded, ErrorRounded } from "@mui/icons-material";
+const stepConnectorSx1 = {
+  "& .MuiStepConnector-line": {
+    borderLeft: "dashed 2px",
+    borderLeftColor: "purple.main",
+  },
+};
+const stepConnectorSx2 = {
+  height: 10,
+  "& .MuiStepConnector-line": {
+    borderLeft: "dashed 2px",
+    borderLeftColor: "purple.main",
+  },
+};
 
 const CustomStepper = () => {
   return (
     <Stepper
       orientation="vertical"
-      connector={
-        <StepConnector
-          color="purple"
-          sx={{
-            "& .MuiStepConnector-line": {
-              borderLeft: "dashed 2px",
-              borderLeftColor: "purple.main",
-            },
-          }}
-        />
-      }
+      connector={<StepConnector color="purple" sx={stepConnectorSx1} />}
       activeStep={3}
     >
-      <StepConnector
-        color="purple"
-        sx={{
-          height: 10,
-          "& .MuiStepConnector-line": {
-            borderLeft: "dashed 2px",
-            borderLeftColor: "purple.main",
-          },
-        }}
-      />
+      <StepConnector color="purple" sx={stepConnectorSx2} />
 
       <Step>
         <StepLabel
           icon={<ErrorRounded sx={{ my: 1 }} />}
-          sx={{
-            color: "red.main",
-          }}
+          sx={{ color: "red.main" }}
         >
           <Typography color="red.main" sx={{ width: 100 }}>
             مکانیک خودرو
@@ -51,10 +43,7 @@ const CustomStepper = () => {
       <Step>
         <StepLabel
           icon={<StepIcon icon={<ErrorRounded />} error={true} />}
-          sx={{
-            color: "red.main",
-            "& .MuiStepLabel-root": {},
-          }}
+          sx={{ color: "red.main" }}
         >
           <Typography color="red.main">آشپز فرنگی</Typography>
         </StepLabel>
@@ -62,10 +51,7 @@ const CustomStepper = () => {
       <Step>
         <StepLabel
           icon={<StepIcon icon={<ErrorRounded />} error={true} />}
-          sx={{
-            color: "red.main",
-            "& .MuiStepLabel-root": {},
-          }}
+          sx={{ color: "red.main" }}
         >
           <Typography color="red.main">باریستا و بارتندر</Typography>
         </StepLabel>
@@ -73,10 +59,7 @@ const CustomStepper = () => {
       <Step>
         <StepLabel
           icon={<StepIcon icon={<CheckRounded />} />}
-          sx={{
-            color: "green.main",
-            "& .MuiStepLabel-root": {},
-          }}
+          sx={{ color: "green.main" }}
         >
           <Typography color="green.main">برنامه نویس</Typography>
         </StepLabel>

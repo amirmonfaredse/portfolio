@@ -1,5 +1,5 @@
 import { IconButton, Tooltip } from "@mui/material";
-import BootstrapSVG from "../../../../assets/svgIcons/BootstrapSVG";
+import BootstrapSVG from "../../../../assets/svgIcons/programmingSVG/BootstrapSVG";
 
 const BootstrapToolTip = () => {
   return (

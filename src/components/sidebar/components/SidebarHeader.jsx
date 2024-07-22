@@ -1,18 +1,17 @@
 import { Avatar, Box, Link, Typography } from "@mui/material";
 import AvatarImg from "../../../assets/images/Avatar.jpg";
 import { Telegram, Instagram, GitHub, LinkedIn } from "@mui/icons-material";
+const avatarSx1 = {
+  height: 150,
+  width: 150,
+  margin: "0 auto",
+  display: { xs: "none", md: "block" },
+};
+
 const SideberHeader = () => {
   return (
     <>
-      <Avatar
-        src={AvatarImg}
-        sx={{
-          height: 150,
-          width: 150,
-          margin: "0 auto",
-          display: { xs: "none", md: "block" },
-        }}
-      >
+      <Avatar src={AvatarImg} sx={avatarSx1}>
         AM
       </Avatar>
       <Typography variant="h6" sx={{ color: "purple.main" }}>

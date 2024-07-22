@@ -3,9 +3,8 @@ import {
   Brush,
   ConstructionRounded,
 } from "@mui/icons-material";
-import { ProgressBarSkills, ProgressBarInfo } from "..";
-import { Typography, Divider, Chip } from "@mui/material";
-// SVG Icons
+import { ProgressBarSkills } from "..";
+
 import {
   HtmlToolTip,
   CssToolTip,
@@ -17,10 +16,14 @@ import {
 } from "./ToolTips";
 import Grid from "@mui/material/Unstable_Grid2";
 import CustomDivider from "../../utils/CustomDivider";
+import { Helmet } from "react-helmet-async";
 
 const MySkills = () => {
   return (
     <>
+      <Helmet>
+        <title>مهارت های من</title>
+      </Helmet>
       <Grid container>
         <Grid item sx={{ width: 1, mt: 4 }}>
           <CustomDivider
