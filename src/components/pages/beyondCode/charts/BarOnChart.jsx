@@ -2,6 +2,15 @@ import { BarChart } from "@mui/x-charts";
 import { Button, Typography } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import theme from "../../../base/theme/theme";
+
+const gridSx1 = {
+  color: "orange.main",
+  display: "flex",
+  flexDirection: "column",
+  alignContent: "center",
+  justifyContent: "center",
+  gap: 2,
+};
 const BarOnChart = () => {
   return (
     <Grid
@@ -15,22 +24,9 @@ const BarOnChart = () => {
         },
       }}
     >
-      <Grid
-        item
-        xs={12}
-        lg={4}
-        sx={{
-          color: "orange.main",
-          display: "flex",
-          flexDirection: "column",
-          alignContent: "center",
-          justifyContent: "center",
-          gap: 2,
-        }}
-        textAlign="center"
-      >
+      <Grid item xs={12} lg={4} sx={gridSx1} textAlign="center">
         <Button color="orange">
-          <Typography variant="h5">نمره ی کل هوش هیجانی من : 89</Typography>
+          <Typography variant="h5">نمره ی کل هوش هیجانی من : 62</Typography>
         </Button>
 
         <Button variant="outlined" color="purple">
@@ -39,15 +35,7 @@ const BarOnChart = () => {
           </Typography>
         </Button>
       </Grid>{" "}
-      <Grid
-        item
-        xs={12}
-        lg={8}
-        sx={{
-          height: 200,
-          width: 1,
-        }}
-      >
+      <Grid item xs={12} lg={8} sx={{ height: 200, width: 1 }}>
         <BarChart
           xAxis={[
             {
@@ -65,12 +53,12 @@ const BarOnChart = () => {
           barLabel="value"
           series={[
             {
-              data: [75, 76, 85, 62, 82],
+              data: [65, 58, 76, 37, 75],
               label: "نمره ی من",
               color: theme.palette.darkBlue.main,
             },
             {
-              data: [80, 76, 87, 85, 82],
+              data: [62, 59, 63, 51, 65],
               color: theme.palette.pink.main,
               label: "میانگین",
             },

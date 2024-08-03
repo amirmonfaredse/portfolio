@@ -17,6 +17,7 @@ const Page = (props) => {
             height: "100vh",
             overflowY: "auto",
             bgcolor: "currentLine.main",
+            position : 'relative'
           }}
         >
           {children}

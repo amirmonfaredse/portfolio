@@ -28,6 +28,9 @@ const HollandChart = () => {
           color="pink.main"
           href="https://www.16personalities.com/estj-personality"
         >
+          <Button color="orange">
+            <Typography variant="h5">کد هالند من : ESI</Typography>
+          </Button>
           <Button color="pink">
             <Typography variant="h6">
               دانلود تفسیر کامل از سایت جاب ویژن
@@ -49,37 +52,37 @@ const HollandChart = () => {
               data: [
                 {
                   id: 0,
-                  value: 31,
+                  value: 20,
                   label: "مدیر و جسور",
                   color: theme.palette.red.main,
                 },
                 {
                   id: 1,
-                  value: 25,
+                  value: 18,
                   label: "اجتماعی",
                   color: theme.palette.orange.main,
                 },
                 {
                   id: 2,
-                  value: 37,
+                  value: 18,
                   label: "جستجو گر و تحلیل گر",
                   color: theme.palette.green.main,
                 },
                 {
                   id: 3,
-                  value: 45,
+                  value: 16,
                   label: "هنری",
                   color: theme.palette.cyan.main,
                 },
                 {
                   id: 4,
-                  value: 57,
+                  value: 13,
                   label: "قاعده مند و قراردادی",
                   color: theme.palette.background.main,
                 },
                 {
                   id: 5,
-                  value: 65,
+                  value: 15,
                   label: "عملگرا",
                   color: theme.palette.purple.main,
                 },
@@ -88,7 +91,7 @@ const HollandChart = () => {
               paddingAngle: 2,
               cornerRadius: 10,
               border: 0,
-              arcLabel: (item) => `${item.value}%`,
+              arcLabel: (item) => `${item.value}`,
             },
           ]}
         />

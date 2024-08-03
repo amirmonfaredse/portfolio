@@ -1,4 +1,5 @@
 import { Box, LinearProgress, Typography } from "@mui/material";
+import { useEffect, useState } from "react";
 const boxSx1 = {
   display: "flex",
   justifyContent: "center",
@@ -12,6 +13,17 @@ const boxSx2 = {
   flexDirection: "row-reverse",
 };
 const ProgressBarSkills = ({ linearValue, icon }) => {
+  const [progress, setProgress] = useState(0);
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setProgress((prevProgress) =>
+        prevProgress >= linearValue ? linearValue : prevProgress + 0.1
+      );
+      return () => {
+        clearInterval(timer);
+      };
+    });
+  }, []);
   return (
     <>
       <Box sx={boxSx1}>
@@ -19,7 +31,7 @@ const ProgressBarSkills = ({ linearValue, icon }) => {
           <LinearProgress
             color="orange"
             variant="determinate"
-            value={linearValue}
+            value={progress}
             sx={{ height: 8, borderRadius: 2, bgcolor: "background.main" }}
           />
         </Box>
@@ -30,7 +42,7 @@ const ProgressBarSkills = ({ linearValue, icon }) => {
             sx={{ color: "pink.main" }}
             alignSelf="center"
           >
-            {`${linearValue}%`}
+            {`${Math.round(progress)}%`}
           </Typography>
         </Box>
       </Box>

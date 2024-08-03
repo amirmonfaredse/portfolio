@@ -5,7 +5,7 @@ const BootstrapSVG = () => {
     <SvgIcon>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        shape-rendering="geometricPrecision"
+        shapeRendering="geometricPrecision"
         text-rendering="geometricPrecision"
         image-rendering="optimizeQuality"
         fill-rule="evenodd"
@@ -21,8 +21,8 @@ const BootstrapSVG = () => {
             x2="523"
             y2="365"
           >
-            <stop offset="0" stop-color="#9013FE" />
-            <stop offset="1" stop-color="#6610F2" />
+            <stop offset="0" stopColor="#9013FE" />
+            <stop offset="1" stopColor="#6610F2" />
           </linearGradient>
         </defs>
         <path

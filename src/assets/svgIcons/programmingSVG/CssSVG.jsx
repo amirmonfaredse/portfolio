@@ -1,17 +1,17 @@
 import { SvgIcon } from "@mui/material";
 
-const CssSVG = () => {
+const CssSVG = ({ width, height }) => {
   return (
-    <SvgIcon>
+    <SvgIcon sx={{ width: width, height: height }}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 296297 333333"
         xmlnsXlink="http://www.w3.org/1999/xlink"
-        shape-rendering="geometricPrecision"
-        text-rendering="geometricPrecision"
-        image-rendering="optimizeQuality"
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        shapeRendering="geometricPrecision"
+        textRendering="geometricPrecision"
+        imageRendering="optimizeQuality"
+        fillRule="evenodd"
+        clipRule="evenodd"
       >
         <defs>
           <linearGradient
@@ -22,8 +22,8 @@ const CssSVG = () => {
             x2="240318"
             y2="79355.5"
           >
-            <stop offset="0" stop-color="#e8e7e5" />
-            <stop offset="1" stop-color="#fff" />
+            <stop offset="0" stopColor="#e8e7e5" />
+            <stop offset="1" stopColor="#fff" />
           </linearGradient>
           <linearGradient
             id="id5"
@@ -33,8 +33,8 @@ const CssSVG = () => {
             x2="233515"
             y2="202868"
           >
-            <stop offset="0" stop-color="#e8e7e5" />
-            <stop offset="1" stop-color="#fff" />
+            <stop offset="0" stopColor="#e8e7e5" />
+            <stop offset="1" stopColor="#fff" />
           </linearGradient>
           <linearGradient
             id="id6"
@@ -44,9 +44,9 @@ const CssSVG = () => {
             x2="104963"
             y2="171021"
           >
-            <stop offset="0" stop-color="#d1d3d4" />
-            <stop offset=".388" stop-color="#d1d3d4" />
-            <stop offset="1" stop-color="#d1d3d4" />
+            <stop offset="0" stopColor="#d1d3d4" />
+            <stop offset=".388" stopColor="#d1d3d4" />
+            <stop offset="1" stopColor="#d1d3d4" />
           </linearGradient>
           <linearGradient
             id="id7"
@@ -66,9 +66,9 @@ const CssSVG = () => {
               x2="104963"
               y2="171021"
             >
-              <stop offset="0" stop-opacity="0" stop-color="#fff" />
-              <stop offset=".388" stop-color="#fff" />
-              <stop offset="1" stop-opacity=".831" stop-color="#fff" />
+              <stop offset="0" stopOpacity="0" stopColor="#fff" />
+              <stop offset=".388" stopColor="#fff" />
+              <stop offset="1" stopOpacity=".831" stopColor="#fff" />
             </linearGradient>
             <path fill="url(#id1)" d="M61737 99467h86453v71704H61737z" />
           </mask>
@@ -81,9 +81,9 @@ const CssSVG = () => {
               x2="194179"
               y2="135407"
             >
-              <stop offset="0" stop-opacity="0" stop-color="#fff" />
-              <stop offset=".388" stop-color="#fff" />
-              <stop offset="1" stop-opacity=".831" stop-color="#fff" />
+              <stop offset="0" stopOpacity="0" stopColor="#fff" />
+              <stop offset=".388" stopColor="#fff" />
+              <stop offset="1" stopOpacity=".831" stopColor="#fff" />
             </linearGradient>
             <path fill="url(#id3)" d="M147890 61036h92578v74521h-92578z" />
           </mask>
@@ -118,14 +118,14 @@ const CssSVG = () => {
               d="M62019 135497l2858 35524 127806 407-2859 47365-42055 11840-40428-10208-2450-29399H67327l4900 56756 75950 22457 75538-22050 9800-112692z"
             />
             <path
-              class="fil6"
+              className="fil6"
               d="M148040 135497H61888l2857 35524 83295 266v-35790zm0 95022l-408 114-40422-10208-2450-29399H67197l4899 56756 75944 22457v-39720z"
             />
             <path
               fill="url(#id4)"
               d="M54129 61186h186189l-3674 36339H58620l-4491-36339z"
             />
-            <path class="fil6" d="M148040 61186H54129l4491 36339h89420z" />
+            <path className="fil6" d="M148040 61186H54129l4491 36339h89420z" />
           </g>
         </g>
       </svg>

@@ -30,15 +30,7 @@ const NeoChart = () => {
           </Typography>
         </Button>
       </Grid>
-      <Grid
-        item
-        xs={12}
-        lg={8}
-        sx={{
-          height: 200,
-          width: 1,
-        }}
-      >
+      <Grid item xs={12} lg={8} sx={{ height: 200, width: 1 }}>
         <BarChart
           xAxis={[
             {

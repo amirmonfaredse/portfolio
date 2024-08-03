@@ -51,15 +51,7 @@ const MBTIChart = () => {
           </Typography>
         </Button>
       </Grid>
-      <Grid
-        item
-        xs={12}
-        lg={6}
-        sx={{
-          height: 200,
-          width: 1,
-        }}
-      >
+      <Grid item xs={12} lg={6} sx={{ height: 200, width: 1 }}>
         <BarChart
           sx={barChartSx}
           barLabel="value"

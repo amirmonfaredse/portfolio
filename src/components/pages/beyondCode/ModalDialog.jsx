@@ -25,7 +25,6 @@ const ModalDialog = ({ openDialog, dialogData, onClickDialog }) => {
         sx={{
           m: 0,
           p: 2,
-          bgcolor: "f",
           color: "secondary.main",
           border: "none",
         }}
