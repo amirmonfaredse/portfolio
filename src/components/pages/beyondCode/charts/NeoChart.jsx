@@ -23,14 +23,14 @@ const NeoChart = () => {
         },
       }}
     >
-      <Grid item xs={12} lg={4} sx={gridSx1} textAlign="center">
+      <Grid  xs={12} lg={4} sx={gridSx1} textAlign="center">
         <Button variant="outlined" color="purple">
           <Typography variant="h6" color="purple.main">
             دانلود تفسیر کامل از سایت جاب ویژن
           </Typography>
         </Button>
       </Grid>
-      <Grid item xs={12} lg={8} sx={{ height: 200, width: 1 }}>
+      <Grid  xs={12} lg={8} sx={{ height: 200, width: 1 }}>
         <BarChart
           xAxis={[
             {

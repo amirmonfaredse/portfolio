@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Accordion,
   AccordionSummary,
@@ -5,9 +6,8 @@ import {
   List,
   Typography,
 } from "@mui/material";
-import { ExpandMore } from "@mui/icons-material";
-import { useState } from "react";
-import CustomSwitch from "../pages/home/CustomSwitch";
+import { CloseRounded, ExpandMore } from "@mui/icons-material";
+import { CustomSwitch } from "..";
 
 const boxSx2 = {
   display: "flex",
@@ -16,7 +16,7 @@ const boxSx2 = {
   alignContent: "center",
   height: 20,
 };
-const FileExplorer = ({ children }) => {
+const FileExplorer = ({ children, onExploreHandler }) => {
   const [expanded, setExpanded] = useState(true);
   const onExpandedAcc = (e) => {
     setExpanded(!expanded);
@@ -27,22 +27,40 @@ const FileExplorer = ({ children }) => {
         expanded={expanded}
         square
         onChange={onExpandedAcc}
-        sx={{ width: 1, bgcolor: "background.main" }}
+        sx={{
+          width: 300,
+          height: 1,
+          bgcolor: "background.main",
+        }}
       >
         <AccordionSummary
           expandIcon={<ExpandMore />}
           sx={{
+            width: 1,
+            pl: 6,
             bgcolor: "background.main",
             "& .MuiAccordionSummary-content": {
               justifyContent: "space-between",
             },
+            display: "flex",
           }}
           aria-controls="fileExplorer"
           id="controlExplorer"
         >
-          <Typography>How You Doing?</Typography>
+          <Typography>Project Manager</Typography>
           <Box sx={boxSx2}>
             <CustomSwitch />
+          </Box>
+          <Box
+            sx={{
+              position: "absolute",
+              left: 0,
+              zIndex: 10,
+              width: 40,
+            }}
+            onClick={onExploreHandler}
+          >
+            <CloseRounded color="orange" />
           </Box>
         </AccordionSummary>
         <List

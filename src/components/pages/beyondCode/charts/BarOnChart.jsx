@@ -24,7 +24,7 @@ const BarOnChart = () => {
         },
       }}
     >
-      <Grid item xs={12} lg={4} sx={gridSx1} textAlign="center">
+      <Grid  xs={12} lg={4} sx={gridSx1} textAlign="center">
         <Button color="orange">
           <Typography variant="h5">نمره ی کل هوش هیجانی من : 62</Typography>
         </Button>
@@ -35,7 +35,7 @@ const BarOnChart = () => {
           </Typography>
         </Button>
       </Grid>{" "}
-      <Grid item xs={12} lg={8} sx={{ height: 200, width: 1 }}>
+      <Grid  xs={12} lg={8} sx={{ height: 200, width: 1 }}>
         <BarChart
           xAxis={[
             {

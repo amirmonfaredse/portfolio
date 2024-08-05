@@ -6,86 +6,20 @@ import {
   CardActions,
   CardContent,
   CardMedia,
-  Chip,
-  Divider,
-  Grid,
   Typography,
   Link,
 } from "@mui/material";
-import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
-import CMAIMG from "../../../assets/images/project/Cma.png";
-import {
-  BootstrapSVG,
-  JsonSVG,
-  ReactSVG,
-  RrdSVG,
-  FormikSVG,
-} from "../../../assets/svgIcons";
+import Grid from "@mui/material/Unstable_Grid2";
+
+import Tooltip from "@mui/material/Tooltip";
+
 import { Helmet } from "react-helmet-async";
 import CustomDivider from "../../utils/CustomDivider";
 import { Suspense } from "react";
 import Loading from "../../utils/Loading";
-const boxSx1 = {
-  direction: "ltr",
-  m: 5,
-  display: "flex",
-  flexDirection: {
-    xs: "column",
-    md: "row",
-  },
-};
-const cardActionSx1 = {
-  bgcolor: "background.main",
-  direction: "rtl",
-  position: "relative",
-};
-const linkSx1 = {
-  fontSize: 15,
-  border: "1px solid",
-  p: 1,
-  ml: 2,
-  mt: 4,
-  borderRadius: 2,
-  position: "absolute",
-};
-const projectData = [
-  {
-    id: 1,
-    image: CMAIMG,
-    title: "پروژه مدیریت مخاطبین",
-    gitLink: "https://github.com/amirmonfaredse/contacts-manager-app",
-    designBy: [
-      { id: 1, title: "React", icon: <ReactSVG /> },
-      { id: 2, title: "Bootstrap", icon: <BootstrapSVG /> },
-      { id: 1, title: "Json", icon: <JsonSVG /> },
-      { id: 1, title: "Formik", icon: <FormikSVG /> },
-      { id: 1, title: "RRD", icon: <RrdSVG /> },
-    ],
-  },
-];
+
+import { boxSx1, cardActionSx1, linkSx1, toolTipObject } from "./data/sxData";
 const Project = () => {
-  const toolTipObject = {
-    popper: {
-      sx: {
-        [`&.${tooltipClasses.popper}[data-popper-placement*="bottom"] .${tooltipClasses.tooltip}`]:
-          {
-            marginTop: "0px",
-          },
-        [`&.${tooltipClasses.popper}[data-popper-placement*="top"] .${tooltipClasses.tooltip}`]:
-          {
-            marginBottom: "0px",
-          },
-        [`&.${tooltipClasses.popper}[data-popper-placement*="right"] .${tooltipClasses.tooltip}`]:
-          {
-            marginLeft: "0px",
-          },
-        [`&.${tooltipClasses.popper}[data-popper-placement*="left"] .${tooltipClasses.tooltip}`]:
-          {
-            marginRight: "0px",
-          },
-      },
-    },
-  };
   return (
     <>
       <Suspense fallback={<Loading />}>
@@ -105,7 +39,7 @@ const Project = () => {
 
             <Box sx={boxSx1}>
               <Grid xs={12} md={6} lg={4} m={2}>
-                {projectData.map((project) => {
+                {/* {projectData.map((project) => {
                   return (
                     <Card key={project.id} sx={{ maxWidth: 400 }}>
                       <CardMedia
@@ -119,6 +53,7 @@ const Project = () => {
                             title={
                               <Typography
                                 variant="body2"
+                                component="span"
                                 sx={{ color: "purple.main" }}
                               >
                                 مشاهده پروژه در گیت هاب
@@ -143,6 +78,7 @@ const Project = () => {
                         </Typography>
                         <Typography
                           variant="body2"
+                          component="span"
                           color="purple.main"
                           sx={{ my: 2 }}
                         >
@@ -150,6 +86,7 @@ const Project = () => {
                         </Typography>
                         <Typography
                           variant="body2"
+                          component="span"
                           sx={{
                             display: "flex",
                             justifyContent: "space-evenly",
@@ -162,6 +99,7 @@ const Project = () => {
                                 title={
                                   <Typography
                                     variant="body2"
+                                    component="span"
                                     sx={{ color: "green.main" }}
                                   >
                                     {t.title}
@@ -177,8 +115,7 @@ const Project = () => {
                       </CardContent>
                     </Card>
                   );
-                })}
-                <Card></Card>
+                })} */}
               </Grid>
             </Box>
           </Grid>

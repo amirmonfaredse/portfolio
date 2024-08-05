@@ -5,7 +5,7 @@ const StudySVG = () => {
     <SvgIcon sx={{ fontSize: 70 }}>
       <svg
         id="Layer_1"
-        dataName="Layer 1"
+        dataname="Layer 1"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 118.46 122.88"
       >

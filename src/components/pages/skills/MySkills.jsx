@@ -28,7 +28,7 @@ const MySkills = () => {
           <title>مهارت های من</title>
         </Helmet>
         <Grid container>
-          <Grid item sx={{ width: 1, mt: 4 }}>
+          <Grid sx={{ width: 1, mt: 4 }}>
             <CustomDivider
               title="مهارت های پایه"
               icon={
@@ -40,10 +40,10 @@ const MySkills = () => {
               color="darkPurple.main"
             />
 
-            <ProgressBarSkills linearValue="90" icon={<HtmlToolTip />} />
-            <ProgressBarSkills linearValue="75" icon={<CssToolTip />} />
-            <ProgressBarSkills linearValue="70" icon={<JsToolTip />} />
-            <ProgressBarSkills linearValue="60" icon={<ReactToolTip />} />
+            <ProgressBarSkills linearValue={90} icon={<HtmlToolTip />} />
+            <ProgressBarSkills linearValue={75} icon={<CssToolTip />} />
+            <ProgressBarSkills linearValue={70} icon={<JsToolTip />} />
+            <ProgressBarSkills linearValue={60} icon={<ReactToolTip />} />
             <CustomDivider
               title="UI طراحی"
               icon={
@@ -55,9 +55,9 @@ const MySkills = () => {
               color="darkPurple.main"
             />
 
-            <ProgressBarSkills linearValue="70" icon={<BootstrapToolTip />} />
+            <ProgressBarSkills linearValue={70} icon={<BootstrapToolTip />} />
 
-            <ProgressBarSkills linearValue="60" icon={<MuiToolTip />} />
+            <ProgressBarSkills linearValue={60} icon={<MuiToolTip />} />
 
             <CustomDivider
               title="ابزار ها"
@@ -70,7 +70,7 @@ const MySkills = () => {
               color="darkPurple.main"
             />
 
-            <ProgressBarSkills linearValue="30" icon={<GithubToolTip />} />
+            <ProgressBarSkills linearValue={30} icon={<GithubToolTip />} />
           </Grid>
         </Grid>
       </Suspense>

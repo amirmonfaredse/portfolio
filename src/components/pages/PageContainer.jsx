@@ -4,10 +4,11 @@ import Grid from "@mui/material/Unstable_Grid2";
 
 import SwipeableViews from "react-swipeable-views";
 
-import { About, Home, Page, MySkills, Project, BeyondCode, ContactMe } from ".";
+import { About, Home, Page, MySkills, Project, BeyondCode } from ".";
 import { DrawerActionBtn } from "../sidebar";
 
 import context from "../../context/context";
+import ContactMeContainer from "./Contact/ContactMeContainer";
 
 const PageContainer = () => {
   const { pageNumber, onPageNumber } = useContext(context);
@@ -32,7 +33,7 @@ const PageContainer = () => {
             <BeyondCode />
           </Page>
           <Page pageNumber={pageNumber} index={5}>
-            <ContactMe />
+            <ContactMeContainer />
           </Page>
         </SwipeableViews>
       </Grid>

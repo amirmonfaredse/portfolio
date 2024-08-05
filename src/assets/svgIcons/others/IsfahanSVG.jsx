@@ -5,7 +5,7 @@ const IsfahanSVG = () => {
     <SvgIcon sx={{ fontSize: 100 }}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        dataName="Layer 1"
+        dataname="Layer 1"
         viewBox="0 0 120 150"
         x="0px"
         y="0px"

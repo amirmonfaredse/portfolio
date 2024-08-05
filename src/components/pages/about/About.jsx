@@ -5,10 +5,11 @@ import { useTheme } from "@emotion/react";
 import Grid from "@mui/material/Unstable_Grid2";
 
 import AboutImg from "../../../assets/images/SecondAVATAR.jpg";
-import { CustomStepper, BnnerInfo, DetailsAbout } from "../";
+import { BnnerInfo, DetailsAbout } from "../";
 import { Suspense } from "react";
 import Loading from "../../utils/Loading";
 
+import RoadSVG from "../../../assets/svgIcons/RoadSVG";
 const cardSx1 = {
   height: {
     xs: "auto",
@@ -68,19 +69,19 @@ const About = () => {
         <Helmet>
           <title>درباره من </title>
         </Helmet>
-        <Grid sx={{ bgcolor: "darkPurple.main" }}>
+        <Grid container sx={{ bgcolor: "darkPurple.main" }}>
           <Card sx={cardSx1}>
             <CardContent sx={{ height: "100%" }}>
               <Grid container sx={gridSx1}>
-                <Grid item xs={0} sm={0} md={0} lg={4}>
+                <Grid xs={0} sm={0} md={0} lg={4}>
                   <Box sx={boxSx1}>
-                    <CustomStepper />
+                    <RoadSVG />
                   </Box>
                 </Grid>
-                <Grid item xs={12} sm={12} md={6} lg={5}>
+                <Grid xs={12} sm={12} md={6} lg={5}>
                   <BnnerInfo isUpLg={isUpLg} />
                 </Grid>
-                <Grid item xs={12} sm={12} md={6} lg={3}>
+                <Grid xs={12} sm={12} md={6} lg={3}>
                   <Avatar src={AboutImg} sx={avatarSx}>
                     AM
                   </Avatar>
@@ -88,7 +89,7 @@ const About = () => {
               </Grid>
             </CardContent>
           </Card>
-          <Grid container sx={gridSx2}>
+          <Grid sx={gridSx2}>
             <DetailsAbout isXs={isXs} />
           </Grid>
         </Grid>

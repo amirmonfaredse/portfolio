@@ -5,7 +5,7 @@ const TimeManageSVG = () => {
     <SvgIcon sx={{ fontSize: 50 }}>
       <svg
         id="Layer_1"
-        dataName="Layer 1"
+        dataname="Layer 1"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 101.5 122.88"
       >

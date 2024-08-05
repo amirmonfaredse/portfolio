@@ -1,156 +1,70 @@
 // React
 import { useEffect, useState, Suspense, useRef } from "react";
 // MUI
-import { Box, ListItemButton, Typography } from "@mui/material";
+import { Box, Drawer, ListItemButton, Typography } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 
-// Particles
-import Particles, { initParticlesEngine } from "@tsparticles/react";
-import { particlesOptions } from "../../../constants/particles.options";
-import { loadFull } from "tsparticles";
-
 // Utils
-import MainBackground from "../../../assets/images/backgrounds/homeBackground.png";
 import Loading from "../../utils/Loading";
 
 // Components
-import FileExplorer from "../../utils/FileExplorer";
-import TypeCodeContainer from "./TypeCodeContainer";
-import ExploreItem from "./ExploreItem";
-import Typed from "typed.js";
-
+import {
+  FileExplorer,
+  TypeCodeContainer,
+  ExploreItem,
+  ParticlesContainer,
+  ExploreActionButton,
+} from ".";
 // SVG
 import { CssSVG, JsSVG, ReactSVG } from "../../../assets/svgIcons";
 import CustomListItem from "../../utils/CustomListItem";
-// SX Objects
-//
-//
-//
-const boxSx1 = {
-  background: `url(${MainBackground})`,
-  backgroundSize: "cover",
-  backgroundPosition: "bottom",
-  backgroundRepeat: "no-repeat",
-  height: 1,
-};
+// Datas
+import { stringHabit, stringIntro, stringNothing } from "./data/typedData";
+import { boxSx1, grindSx1, codeContainerSx } from "./data/sxData";
 
-const grindSx1 = {
-  display: "flex",
-  justifyContent: "start",
-  gap: 40,
-  alignItems: "start",
-  width: 1,
-  height: 1,
-};
-const gridSx2 = {
-  width: 300,
-  height: 1,
-  display: "flex",
-  justifyContent: "start",
-  flexDirection: "column",
-  alignItems: "start",
-  bgcolor: "background.main",
-};
-const gridSx3 = {
-  width: 400,
-  height: 1,
-  borderRadius: 5,
-  display: "flex",
-  alignItems: "center",
-};
-const boxSx2 = {
-  width: 1,
-  height: 350,
-  bgcolor: "background.main",
-  borderRadius: 5,
-  overflow: "hidden",
-};
-
-//
-//
-//
+// Lib
+import Typed from "typed.js";
+import {
+  firstLineTypedObject,
+  secondLineTypedObject,
+  thiredLineTypedObject,
+} from "./data/typedObjectValuesData";
 
 const Home = () => {
-  const stringIntro = {
-    firstLine: ["Amirreza"],
-    secondLine: ["Js Developer", "React Programmer"],
-    thiredLine: [],
-  };
-  const stringHabit = {
-    firstLine: ["Movie", "Anime", "Books"],
-    secondLine: ["Gym", "Vollyball"],
-    thiredLine: ["Learning"],
-  };
-  const stringNothing = {
-    firstLine: ["Nothing"],
-    secondLine: ["This is Nothing", "This is Too!"],
-    thiredLine: ["And This"],
-  };
   const firstLineEl = useRef(null);
   const secondLineEl = useRef(null);
   const thiredLineEl = useRef(null);
-  const [init, setInit] = useState(false);
-  const [slide, setSlide] = useState(false);
-  const [currentStrings, setCurrentStrings] = useState({
-    firstLine: ["Amirreza"],
-    secondLine: ["Js Developer", "React Programmer"],
-    thiredLine: [''],
-  });
-  const particlesLoaded = async (container) => {
-    console.log(container);
-  };
-  useEffect(() => {
-    try {
-      initParticlesEngine(async (engine) => {
-        await loadFull(engine);
-      })
-        .then(() => {
-          setInit(true);
-        })
-        .then(() => {
-          setTimeout(() => {
-            setSlide(true);
-          }, 1000);
-        });
 
-      return () => {
-        setSlide(false);
-      };
-    } catch (err) {
-      console.log(err.message);
-    }
-  }, []);
+  const [exploreOpen, setExploreOpen] = useState(true);
+  const [codeContainerOpen, setCodeContainerOpen] = useState(false);
+  const [fileName, setFileName] = useState("Introduction");
+  const [currentStrings, setCurrentStrings] = useState(stringIntro);
+
+  const onExploreHandler = (e) => {
+    e.stopPropagation();
+    setExploreOpen(!exploreOpen);
+  };
+  const onCodeContainerHandler = () => {
+    setCodeContainerOpen(!codeContainerOpen);
+    console.log(codeContainerOpen);
+  };
 
   useEffect(() => {
     try {
       const typedFirstLine = new Typed(firstLineEl.current, {
         strings: currentStrings.firstLine,
-        typeSpeed: 50,
-        startDelay: 2000,
-        backSpeed: 60,
-        showCursor: false,
+        ...firstLineTypedObject,
       });
       const typedSecondLine = new Typed(secondLineEl.current, {
         strings: currentStrings.secondLine,
-        startDelay: 3700,
-        typeSpeed: 80,
-        backSpeed: 40,
-        backDelay: 1000,
-        loop: true,
-        showCursor: false,
+        ...secondLineTypedObject,
       });
       const typedThiredLine = new Typed(thiredLineEl.current, {
+        ...thiredLineTypedObject,
         strings: currentStrings.thiredLine,
-        startDelay: 3700,
-        typeSpeed: 80,
-        backSpeed: 40,
-        backDelay: 1000,
-        loop: true,
-        showCursor: false,
       });
 
       return () => {
-        setSlide(false);
         typedFirstLine.destroy();
         typedSecondLine.destroy();
         typedThiredLine.destroy();
@@ -163,21 +77,24 @@ const Home = () => {
     <>
       <Suspense fallback={<Loading />}>
         <Box sx={boxSx1}>
-          {init && (
-            <Particles
-              id="tsparticles"
-              particlesLoaded={particlesLoaded}
-              options={particlesOptions}
-            />
-          )}
-
-          <Grid container sx={grindSx1}>
-            <Grid item sx={gridSx2}>
-              <Box sx={{ width: 1 }}>
-                <FileExplorer>
+          <ParticlesContainer />
+          <Grid sx={grindSx1}>
+            <ExploreActionButton onExploreHandler={onExploreHandler} />
+            <Drawer
+              variant="persistent"
+              open={exploreOpen}
+              onClose={onExploreHandler}
+              anchor="right"
+            >
+              <Box sx={{ width: 1, height: 1 }}>
+                <FileExplorer onExploreHandler={onExploreHandler}>
                   <ListItemButton
                     sx={{ bgcolor: "background.main" }}
-                    onClick={() => setCurrentStrings(stringIntro)}
+                    onClick={() => {
+                      setCurrentStrings(stringIntro);
+                      setFileName("Introduction.jsx");
+                      setCodeContainerOpen(true);
+                    }}
                   >
                     <ExploreItem
                       title="Introduction"
@@ -186,7 +103,11 @@ const Home = () => {
                   </ListItemButton>
                   <ListItemButton
                     sx={{ bgcolor: "background.main" }}
-                    onClick={() => setCurrentStrings(stringHabit)}
+                    onClick={() => {
+                      setCurrentStrings(stringHabit);
+                      setFileName("Habits.js");
+                      setCodeContainerOpen(true);
+                    }}
                   >
                     <ExploreItem
                       title="Habits"
@@ -195,7 +116,11 @@ const Home = () => {
                   </ListItemButton>
                   <ListItemButton
                     sx={{ bgcolor: "background.main" }}
-                    onClick={() => setCurrentStrings(stringNothing)}
+                    onClick={() => {
+                      setCurrentStrings(stringNothing);
+                      setFileName("Nothing.css");
+                      setCodeContainerOpen(true);
+                    }}
                   >
                     <ExploreItem
                       title="Noting"
@@ -207,10 +132,23 @@ const Home = () => {
                   </ListItemButton>
                 </FileExplorer>
               </Box>
-            </Grid>
-            <Grid item sx={gridSx3}>
-              <Box sx={boxSx2}>
-                <TypeCodeContainer>
+            </Drawer>
+            <Box sx={codeContainerSx}>
+              <Box
+                sx={{
+                  display: codeContainerOpen ? "block" : "none",
+                  width: 350,
+                  height: 350,
+                  bgcolor: "background.main",
+                  borderRadius: 5,
+                  overflow: "hidden",
+                }}
+              >
+                <TypeCodeContainer
+                  fileName={fileName}
+                  codeContainerOpen={codeContainerOpen}
+                  onCodeContainerHandler={onCodeContainerHandler}
+                >
                   <CustomListItem color="red.main" count={1}>
                     <Typography ref={firstLineEl}>
                       [ Amirreza Mofared ]
@@ -224,7 +162,7 @@ const Home = () => {
                   </CustomListItem>
                 </TypeCodeContainer>
               </Box>
-            </Grid>
+            </Box>
           </Grid>
         </Box>
       </Suspense>

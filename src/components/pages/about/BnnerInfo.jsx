@@ -80,7 +80,6 @@ const btnSx1 = {
 const BannerInfo = ({ isUpLg }) => {
   return (
     <Box sx={boxSx1}>
-      {/* Tyopgraphy Box */}
       <Box sx={boxSx2}>
         <Typography
           variant={isUpLg ? "h3" : "h4"}

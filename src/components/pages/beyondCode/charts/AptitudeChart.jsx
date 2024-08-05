@@ -19,7 +19,7 @@ const gridSx2 = {
 const AptitudeChart = () => {
   return (
     <Grid container gap={2} px={4} sx={gridSx1}>
-      <Grid item xs={12} lg={4} sx={gridSx2} textAlign="center">
+      <Grid  xs={12} lg={4} sx={gridSx2} textAlign="center">
         <Button variant="outlined" color="purple">
           <Typography variant="h6" color="purple.main">
             دانلود تفسیر کامل از سایت جاب ویژن
@@ -27,7 +27,7 @@ const AptitudeChart = () => {
         </Button>
       </Grid>
       <Grid
-        item
+        
         xs={12}
         lg={8}
         sx={{

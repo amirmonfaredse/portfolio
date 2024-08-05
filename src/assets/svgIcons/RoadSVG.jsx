@@ -5,7 +5,7 @@ const RoadSVG = () => {
     <SvgIcon sx={{ width: 700, height: 700 }}>
       <svg
         id="Layer_3"
-        dataName="Layer 3"
+        dataname="Layer 3"
         xmlns="http://www.w3.org/2000/svg"
         version="1.1"
         viewBox="0 0 1366 768"
@@ -75,7 +75,7 @@ const RoadSVG = () => {
         <ellipse className="cls-7" cx="988.5" cy="274" rx="24.5" ry="24" />
         <ellipse className="cls-7" cx="334.5" cy="274" rx="24.5" ry="24" />
         <path
-          class="cls-5"
+          className="cls-5"
           d="M971.66,474.59c-.61-1.34-1.05,11.15,2.85,17.38,2.8,4.47,5.93,3.94,9.5-.69,4.39-5.69,16.79-37.62,15.84-37.94-2.01-.67-19.29,54.65-27.21,24.64l-.97-3.4Z"
         />
         <g>
@@ -111,7 +111,7 @@ const RoadSVG = () => {
           <g>
             <line className="cls-13" x1="468" y1="483" x2="471.5" y2="483" />
             <line className="cls-12" x1="476.52" y1="483" x2="943.99" y2="483" />
-            <line claclassNamess="cls-13" x1="946.5" y1="483" x2="950" y2="483" />
+            <line className="cls-13" x1="946.5" y1="483" x2="950" y2="483" />
           </g>
         </g>
         <g>

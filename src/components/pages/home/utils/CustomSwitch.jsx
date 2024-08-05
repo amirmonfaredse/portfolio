@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import { LightMode } from "@mui/icons-material";
-import theme from "../../base/theme/theme";
+import theme from "../../../base/theme/theme";
 
 const CustomSwitch = () => {
   const onSwitch = (e) => {

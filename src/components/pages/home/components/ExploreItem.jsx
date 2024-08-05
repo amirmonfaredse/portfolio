@@ -1,4 +1,4 @@
-import { ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
+import {  ListItemIcon, ListItemText } from "@mui/material";
 
 const ExploreItem = ({ title, icon, onClickHandler }) => {
   return (

@@ -30,7 +30,7 @@ const MBTIChart = () => {
         },
       }}
     >
-      <Grid item xs={12} lg={6} sx={gridSx1} textAlign="center">
+      <Grid  xs={12} lg={6} sx={gridSx1} textAlign="center">
         <Button color="orange">
           <Typography variant="h5">ESTJ</Typography>
         </Button>
@@ -51,7 +51,7 @@ const MBTIChart = () => {
           </Typography>
         </Button>
       </Grid>
-      <Grid item xs={12} lg={6} sx={{ height: 200, width: 1 }}>
+      <Grid  xs={12} lg={6} sx={{ height: 200, width: 1 }}>
         <BarChart
           sx={barChartSx}
           barLabel="value"

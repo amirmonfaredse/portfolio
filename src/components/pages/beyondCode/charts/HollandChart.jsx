@@ -20,7 +20,7 @@ const HollandChart = () => {
         flexWrap: "wrap",
       }}
     >
-      <Grid item xs={12} sx={gridSx1} textAlign="center">
+      <Grid  xs={12} sx={gridSx1} textAlign="center">
         <Link
           target="_blank"
           rel="noreferrer"
@@ -39,7 +39,7 @@ const HollandChart = () => {
         </Link>
       </Grid>
       <Grid
-        item
+        
         xs={12}
         sx={{
           height: 300,

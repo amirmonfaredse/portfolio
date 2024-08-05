@@ -1,12 +1,11 @@
 export { default as About } from "./about/About";
-export { default as ProgressBarSkills } from "./skills/ProgressBarSkills";
+export { default as ProgressBarSkills } from "./skills/utils/ProgressBarSkills";
 export { default as Home } from "./home/Home";
 export { default as Page } from "./Page";
 export { default as PageContainer } from "./PageContainer";
 export { default as MySkills } from "./skills/MySkills";
 export { default as Project } from "./project/Project";
 export { default as BeyondCode } from "./beyondCode/BeyondCode";
-export { default as ContactMe } from "./Contact/ContactMe";
-export { default as CustomStepper } from "./about/CustomStepper";
+export { default as ContactMeContainer } from "./Contact/ContactMeContainer";
 export { default as BnnerInfo } from "./about/BnnerInfo";
 export { default as DetailsAbout } from "./about/DetailsAbout";

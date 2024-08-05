@@ -1,15 +1,13 @@
-import { Box, Typography } from "@mui/material";
 import {
   List,
   ListItemButton,
   ListItemIcon,
   ListItemText,
+  Box,
 } from "@mui/material";
-import { ReactSVG } from "../../../assets/svgIcons";
+import { ReactSVG } from "../../../../assets/svgIcons";
 import { CloseRounded } from "@mui/icons-material";
-import { useEffect, useRef } from "react";
-const TypeCodeContainer = ({ children }) => {
- 
+const TypeCodeContainer = ({ children, fileName, onCodeContainerHandler }) => {
   return (
     <>
       <List
@@ -17,7 +15,7 @@ const TypeCodeContainer = ({ children }) => {
         sx={{
           "& .MuiButtonBase-root": {
             height: 40,
-            width: 160,
+            width: 200,
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
@@ -32,7 +30,7 @@ const TypeCodeContainer = ({ children }) => {
             m: 0,
           },
           "& .MuiTypography-root": {
-            width: 80,
+            width: 120,
             display: "flex",
             justifyContent: "center",
           },
@@ -52,9 +50,9 @@ const TypeCodeContainer = ({ children }) => {
             sx={{
               color: "orange.main",
             }}
-            secondary="file.name"
+            secondary={fileName}
           />
-          <ListItemIcon>
+          <ListItemIcon onClick={onCodeContainerHandler}>
             <CloseRounded color="foreground" />
           </ListItemIcon>
         </ListItemButton>

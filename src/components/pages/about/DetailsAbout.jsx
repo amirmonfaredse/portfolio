@@ -1,4 +1,5 @@
-import { Box, Chip, Grid, Typography } from "@mui/material";
+import { Box, Chip, Typography } from "@mui/material";
+import Grid from "@mui/material/Unstable_Grid2";
 import {
   FormatQuoteRounded,
   PersonRounded,
@@ -58,8 +59,11 @@ const boxSx2 = {
 const DetailsAbout = ({ isXs }) => {
   return (
     <>
-      <Grid xs={12} sm={10} md={8} sx={{ width: 1, my: 5, height: "auto" }}>
-        <Grid item xs={12} sm={10} my={5} sx={gridSx1}>
+      <Grid
+        container
+        sx={{ width: 1, my: 5, height: "auto", justifyContent: "center" }}
+      >
+        <Grid xs={12} sm={10} my={5} sx={gridSx1}>
           <FormatQuoteRounded sx={{ color: "purple.main" }} />
           <Typography variant={isXs ? "h6" : "h5"} color="purple.main">
             زمانی که شما راه و روش را دربرهه ای از زندگی آموختید
@@ -75,21 +79,15 @@ const DetailsAbout = ({ isXs }) => {
           </Typography>
           <FormatQuoteRounded sx={{ color: "purple.main" }} />
         </Grid>
-        <Grid item xs={12} sm={10} md={8} sx={gridSx2}>
+        <Grid xs={12} sm={10} md={8} sx={gridSx2}>
           <Typography sx={typoSx1}>
             میاموتو موساشی
             <PersonRounded color="orange" sx={{ mx: 1 }} />
           </Typography>
         </Grid>
       </Grid>
-      <Grid
-        container
-        xs={12}
-        sm={10}
-        md={8}
-        sx={{ width: 1, my: 5, mx: "auto" }}
-      >
-        <Grid item xs={12} md={6} lg={4}>
+      <Grid container sx={{ width: 1, my: 5, mx: "auto" }}>
+        <Grid xs={12} md={6} lg={4}>
           <Box sx={boxSx1}>
             <IsfahanSVG sx={{ width: 200 }} />
             <Chip
@@ -99,7 +97,7 @@ const DetailsAbout = ({ isXs }) => {
             />
           </Box>
         </Grid>
-        <Grid item xs={12} md={6} lg={4}>
+        <Grid xs={12} md={6} lg={4}>
           <Box sx={boxSx1}>
             <Box sx={boxSx2} textAlign="center">
               <BirthCakeSVG />
@@ -111,7 +109,7 @@ const DetailsAbout = ({ isXs }) => {
             />
           </Box>
         </Grid>
-        <Grid item xs={12} md={12} lg={4}>
+        <Grid xs={12} md={12} lg={4}>
           <Box sx={boxSx1}>
             <Box sx={boxSx2}>
               <StudySVG color="orange" sx={{ fontSize: 60 }} />
