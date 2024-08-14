@@ -5,3 +5,8 @@ export { default as ReactToolTip } from "./ReactToolTip";
 export { default as GithubToolTip } from "./GithubToolTip";
 export { default as BootstrapToolTip } from "./BootstrapToolTip";
 export { default as MuiToolTip } from "./MuiToolTip";
+export { default as NextToolTip } from "./NextToolTip";
+export { default as CleanCodeToolTip } from "./CleanCodeToolTip";
+export { default as OOPToolTip } from "./OOPToolTip";
+export { default as VSCodeToolTip } from "./VSCodeToolTip";
+export { default as PostmanToolTip } from "./PostmanToolTip";

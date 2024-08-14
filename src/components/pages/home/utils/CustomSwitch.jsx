@@ -1,22 +1,20 @@
 import { Box } from "@mui/material";
 import { LightMode } from "@mui/icons-material";
-import theme from "../../../base/theme/theme";
+import { useContext } from "react";
+import Context from "../../../../context/context";
 
 const CustomSwitch = () => {
+  const { themeMode, setThemeMode } = useContext(Context);
   const onSwitch = (e) => {
     e.stopPropagation();
-    if (theme.palette.mode === "dark") {
-      theme.palette.mode = "light";
-    } else {
-      theme.palette.mode = "dark";
-    }
-    console.log(theme.palette.mode);
+    setThemeMode(!themeMode);
+    console.log(themeMode);
   };
   return (
     <Box
       size="small"
       sx={{
-        color: theme.palette.mode === "dark" ? "pink.main" : "background.main",
+        color: themeMode ? "red.main" : "pink.main",
         display: "flex",
         alignItems: "center",
         mx: 1,

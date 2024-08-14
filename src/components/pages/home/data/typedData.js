@@ -7,10 +7,10 @@ export const stringHabit = {
   firstLine: [
     "My Beloved Things?",
     "Movies,Series,Anime",
-    "Books, Psychological, Stories, Historical",
+    "Books, Psychological, Stories",
   ],
   secondLine: [
-    "My Favorite Activities |",
+    "My Favorite Activities ?",
     "Vollyball With Friends",
     "GOING TO GYM",
   ],

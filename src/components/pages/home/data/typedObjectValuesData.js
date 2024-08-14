@@ -1,12 +1,12 @@
 export const firstLineTypedObject = {
-  typeSpeed: 50,
+  typeSpeed: 10,
   startDelay: 1000,
   backSpeed: 60,
   showCursor: false,
 };
 
 export const secondLineTypedObject = {
-  tstartDelay: 3700,
+  startDelay: 3700,
   typeSpeed: 80,
   backSpeed: 40,
   backDelay: 1000,
@@ -14,7 +14,7 @@ export const secondLineTypedObject = {
   showCursor: false,
 };
 export const thiredLineTypedObject = {
-  startDelay: 3700,
+  startDelay: 6700,
   typeSpeed: 80,
   backSpeed: 40,
   backDelay: 1000,

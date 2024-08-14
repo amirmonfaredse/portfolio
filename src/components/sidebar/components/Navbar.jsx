@@ -4,7 +4,8 @@ import { Tabs, Tab } from "@mui/material";
 import { tabsData } from "../helpers/tabsData.sidebar";
 
 const Navbar = () => {
-  const { pageNumber, onPageNumber, onDrawerToggler } = useContext(context);
+  const { pageNumber, onPageNumber, onDrawerToggler, themeMode } =
+    useContext(context);
   const data = tabsData();
 
   return (
@@ -25,7 +26,7 @@ const Navbar = () => {
             iconPosition="start"
             onClick={onDrawerToggler}
             sx={{
-              color: "purple.main",
+              color: themeMode ? "background.main" : "purple.main",
               "&.Mui-selected": {
                 color: "pink.main",
               },

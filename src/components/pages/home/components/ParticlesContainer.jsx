@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react";
+import { Suspense, useContext, useEffect } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { particlesOptions } from "../../../../constants/particles.options";
 import { loadFull } from "tsparticles";
+import Context from "../../../../context/context";
+import Loading from "../../../utils/Loading";
 
 const ParticlesContainer = () => {
-  const [init, setInit] = useState(false);
-  const [slide, setSlide] = useState(false);
+  const { init, setInit, setSlide } = useContext(Context);
+
   const particlesLoaded = async (container) => {
     console.log(container);
   };
@@ -34,11 +36,13 @@ const ParticlesContainer = () => {
   return (
     <>
       {init && (
-        <Particles
-          id="tsparticles"
-          particlesLoaded={particlesLoaded}
-          options={particlesOptions}
-        />
+        <Suspense fallback={<Loading />}>
+          <Particles
+            id="tsparticles"
+            particlesLoaded={particlesLoaded}
+            options={particlesOptions}
+          />
+        </Suspense>
       )}
     </>
   );

@@ -1,16 +1,11 @@
-import { Box, Button, Typography, Link } from "@mui/material";
+import { Button, Typography, Link } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import { PieChart } from "@mui/x-charts";
-import theme from "../../../base/theme/theme";
-const gridSx1 = {
-  color: "orange.main",
-  display: "flex",
-  flexDirection: "column",
-  alignContent: "center",
-  justifyContent: "center",
-  my: 2,
-};
+import { useContext } from "react";
+import context from "../../../../context/context";
 const HollandChart = () => {
+  const { theme, themeMode } = useContext(context);
+
   return (
     <Grid
       container
@@ -20,15 +15,25 @@ const HollandChart = () => {
         flexWrap: "wrap",
       }}
     >
-      <Grid  xs={12} sx={gridSx1} textAlign="center">
+      <Grid
+        xs={12}
+        sx={{
+          color: "orange.main",
+          display: "flex",
+          flexDirection: "column",
+          alignContent: "center",
+          justifyContent: "center",
+          my: 2,
+        }}
+        textAlign="center"
+      >
         <Link
           target="_blank"
           rel="noreferrer"
           underline="none"
           color="pink.main"
-          href="https://www.16personalities.com/estj-personality"
         >
-          <Button color="orange">
+          <Button sx={{ color: themeMode ? "background.main" : "orange.main" }}>
             <Typography variant="h5">کد هالند من : ESI</Typography>
           </Button>
           <Button color="pink">
@@ -39,7 +44,6 @@ const HollandChart = () => {
         </Link>
       </Grid>
       <Grid
-        
         xs={12}
         sx={{
           height: 300,

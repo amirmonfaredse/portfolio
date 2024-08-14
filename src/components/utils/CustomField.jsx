@@ -1,4 +1,6 @@
 import { InputAdornment, TextField } from "@mui/material";
+import { useContext } from "react";
+import context from "../../context/context";
 
 const CustomField = ({
   type = "text",
@@ -7,6 +9,8 @@ const CustomField = ({
   icon,
   ...props
 }) => {
+  const { themeMode } = useContext(context);
+  let colored = themeMode ? "background" : "pink";
   return (
     <TextField
       fullWidth
@@ -15,7 +19,7 @@ const CustomField = ({
       name={name}
       variant="outlined"
       size="small"
-      color="purple"
+      color={colored}
       InputProps={{
         endAdornment: <InputAdornment position="end">{icon}</InputAdornment>,
       }}

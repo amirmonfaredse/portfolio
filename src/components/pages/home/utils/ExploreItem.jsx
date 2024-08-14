@@ -1,8 +1,12 @@
-import {  ListItemIcon, ListItemText } from "@mui/material";
+import { ListItemIcon, ListItemText } from "@mui/material";
+import { Suspense, useContext } from "react";
+import Loading from "../../../utils/Loading";
+import context from "../../../../context/context";
 
-const ExploreItem = ({ title, icon, onClickHandler }) => {
+const ExploreItem = ({ title, icon }) => {
+  const { themeMode } = useContext(context);
   return (
-    <>
+    <Suspense fallback={<Loading />}>
       <ListItemIcon
         sx={{
           "& .MuiListItemIcon-root": {
@@ -19,7 +23,7 @@ const ExploreItem = ({ title, icon, onClickHandler }) => {
       <ListItemText
         primary={title}
         sx={{
-          color: "foreground.main",
+          color: themeMode ? "background.main" : "foreground.main",
           "& .MuiListItemText-primary": {
             width: 1,
           },
@@ -30,7 +34,7 @@ const ExploreItem = ({ title, icon, onClickHandler }) => {
           },
         }}
       />
-    </>
+    </Suspense>
   );
 };
 export default ExploreItem;

@@ -1,8 +1,27 @@
 import { createContext } from "react";
 
 export default createContext({
-    pageNumber: 0,
-    onPageNumber: () => { },
-    drawerOpen: false,
-    setDrawerOpen: () => { }
-})
+  pageNumber: 0,
+  onPageNumber: () => {},
+  sideBarOpen: false,
+  onDrawerToggler: () => {},
+  openDialog: false,
+  onDialogToggler: () => {},
+  expanded: true,
+  onExpendedToggler: () => {},
+  exploreOpen: true,
+  onExploreToggler: () => {},
+  codeContainerOpen: false,
+  onCodeContainerToggler: () => {},
+  dialogData: {},
+  setDialogData: () => {},
+  fileName: "",
+  setFileName: () => {},
+  currentStrings: "",
+  setCurrentStrings: () => {},
+  progress: 0,
+  setProgress: () => {},
+  isDownMd: true,
+  isUpLg: false,
+  isXs: false,
+});

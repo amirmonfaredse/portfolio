@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Suspense, useContext } from "react";
 import {
   Accordion,
   AccordionSummary,
@@ -8,29 +8,23 @@ import {
 } from "@mui/material";
 import { CloseRounded, ExpandMore } from "@mui/icons-material";
 import { CustomSwitch } from "..";
+import Context from "../../../../context/context";
+import Loading from "../../../utils/Loading";
 
-const boxSx2 = {
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
-  alignContent: "center",
-  height: 20,
-};
-const FileExplorer = ({ children, onExploreHandler }) => {
-  const [expanded, setExpanded] = useState(true);
-  const onExpandedAcc = (e) => {
-    setExpanded(!expanded);
-  };
+const FileExplorer = ({ children }) => {
+  const { expanded, onExpendedToggler, onExploreToggler, themeMode } =
+    useContext(Context);
+
   return (
-    <>
+    <Suspense fallback={<Loading />}>
       <Accordion
         expanded={expanded}
         square
-        onChange={onExpandedAcc}
+        onChange={onExpendedToggler}
         sx={{
           width: 300,
           height: 1,
-          bgcolor: "background.main",
+          bgcolor: themeMode ? "foreground.main" : "background.main",
         }}
       >
         <AccordionSummary
@@ -38,7 +32,7 @@ const FileExplorer = ({ children, onExploreHandler }) => {
           sx={{
             width: 1,
             pl: 6,
-            bgcolor: "background.main",
+            bgcolor: themeMode ? "foreground.main" : "background.main",
             "& .MuiAccordionSummary-content": {
               justifyContent: "space-between",
             },
@@ -48,7 +42,15 @@ const FileExplorer = ({ children, onExploreHandler }) => {
           id="controlExplorer"
         >
           <Typography>Project Manager</Typography>
-          <Box sx={boxSx2}>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignContent: "center",
+              height: 20,
+            }}
+          >
             <CustomSwitch />
           </Box>
           <Box
@@ -58,9 +60,11 @@ const FileExplorer = ({ children, onExploreHandler }) => {
               zIndex: 10,
               width: 40,
             }}
-            onClick={onExploreHandler}
+            onClick={onExploreToggler}
           >
-            <CloseRounded color="orange" />
+            <CloseRounded
+              sx={{ color: themeMode ? "background.main" : "orange.main" }}
+            />
           </Box>
         </AccordionSummary>
         <List
@@ -71,13 +75,13 @@ const FileExplorer = ({ children, onExploreHandler }) => {
               width: 1,
               height: 1,
             },
-            bgcolor: "background.main",
+            bgcolor: themeMode ? "foreground.main" : "background.main",
           }}
         >
           {children}
         </List>
       </Accordion>
-    </>
+    </Suspense>
   );
 };
 export default FileExplorer;

@@ -6,7 +6,7 @@ import { Box, Fab } from "@mui/material";
 import context from "../../../context/context";
 
 const DrewerActionBtn = () => {
-  const { onDrawerToggler } = useContext(context);
+  const { onDrawerToggler, themeMode } = useContext(context);
   return (
     <Box
       sx={{
@@ -22,8 +22,8 @@ const DrewerActionBtn = () => {
         size="small"
         sx={{
           m: 2,
-          bgcolor: "background.main",
-          color: "purple.main",
+          bgcolor: themeMode ? "foreground.main" : "background.main",
+          color: themeMode ? "background.main" : "purple.main",
         }}
         onClick={onDrawerToggler}
       >

@@ -1,8 +1,9 @@
 // React
-import { useEffect, useState, Suspense, useRef } from "react";
+import { useEffect, Suspense, useRef, useContext } from "react";
 // MUI
-import { Box, Drawer, ListItemButton, Typography } from "@mui/material";
+import { Box, Drawer, Grow, ListItemButton, Typography } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
+import MainBackground from "../../../assets/images/backgrounds/homeBackground.png";
 
 // Utils
 import Loading from "../../utils/Loading";
@@ -20,7 +21,6 @@ import { CssSVG, JsSVG, ReactSVG } from "../../../assets/svgIcons";
 import CustomListItem from "../../utils/CustomListItem";
 // Datas
 import { stringHabit, stringIntro, stringNothing } from "./data/typedData";
-import { boxSx1, grindSx1, codeContainerSx } from "./data/sxData";
 
 // Lib
 import Typed from "typed.js";
@@ -29,27 +29,26 @@ import {
   secondLineTypedObject,
   thiredLineTypedObject,
 } from "./data/typedObjectValuesData";
+import Context from "../../../context/context";
 
 const Home = () => {
+  const {
+    exploreOpen,
+    onExploreToggler,
+    codeContainerOpen,
+    onCodeContainerToggler,
+    fileName,
+    setFileName,
+    currentStrings,
+    setCurrentStrings,
+  } = useContext(Context);
   const firstLineEl = useRef(null);
   const secondLineEl = useRef(null);
   const thiredLineEl = useRef(null);
-
-  const [exploreOpen, setExploreOpen] = useState(true);
-  const [codeContainerOpen, setCodeContainerOpen] = useState(false);
-  const [fileName, setFileName] = useState("Introduction");
-  const [currentStrings, setCurrentStrings] = useState(stringIntro);
-
-  const onExploreHandler = (e) => {
-    e.stopPropagation();
-    setExploreOpen(!exploreOpen);
-  };
-  const onCodeContainerHandler = () => {
-    setCodeContainerOpen(!codeContainerOpen);
-    console.log(codeContainerOpen);
-  };
-
   useEffect(() => {
+    if (!currentStrings) {
+      setCurrentStrings(stringIntro);
+    }
     try {
       const typedFirstLine = new Typed(firstLineEl.current, {
         strings: currentStrings.firstLine,
@@ -76,24 +75,40 @@ const Home = () => {
   return (
     <>
       <Suspense fallback={<Loading />}>
-        <Box sx={boxSx1}>
+        <Box
+          sx={{
+            background: `url(${MainBackground})`,
+            backgroundSize: "cover",
+            backgroundPosition: "bottom",
+            backgroundRepeat: "no-repeat",
+            height: 1,
+          }}
+        >
           <ParticlesContainer />
-          <Grid sx={grindSx1}>
-            <ExploreActionButton onExploreHandler={onExploreHandler} />
+          <Grid
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              width: 1,
+              height: 1,
+            }}
+          >
+            <ExploreActionButton onExploreHandler={onExploreToggler} />
             <Drawer
               variant="persistent"
               open={exploreOpen}
-              onClose={onExploreHandler}
+              onClose={onExploreToggler}
               anchor="right"
             >
               <Box sx={{ width: 1, height: 1 }}>
-                <FileExplorer onExploreHandler={onExploreHandler}>
+                <FileExplorer onExploreHandler={onExploreToggler}>
                   <ListItemButton
-                    sx={{ bgcolor: "background.main" }}
-                    onClick={() => {
+                    onClick={(e) => {
                       setCurrentStrings(stringIntro);
                       setFileName("Introduction.jsx");
-                      setCodeContainerOpen(true);
+                      onExploreToggler(e);
+                      !codeContainerOpen && onCodeContainerToggler();
                     }}
                   >
                     <ExploreItem
@@ -102,11 +117,11 @@ const Home = () => {
                     />
                   </ListItemButton>
                   <ListItemButton
-                    sx={{ bgcolor: "background.main" }}
-                    onClick={() => {
+                    onClick={(e) => {
                       setCurrentStrings(stringHabit);
                       setFileName("Habits.js");
-                      setCodeContainerOpen(true);
+                      onCodeContainerToggler();
+                      onExploreToggler(e);
                     }}
                   >
                     <ExploreItem
@@ -115,11 +130,11 @@ const Home = () => {
                     />
                   </ListItemButton>
                   <ListItemButton
-                    sx={{ bgcolor: "background.main" }}
-                    onClick={() => {
+                    onClick={(e) => {
                       setCurrentStrings(stringNothing);
                       setFileName("Nothing.css");
-                      setCodeContainerOpen(true);
+                      onCodeContainerToggler();
+                      onExploreToggler(e);
                     }}
                   >
                     <ExploreItem
@@ -133,35 +148,31 @@ const Home = () => {
                 </FileExplorer>
               </Box>
             </Drawer>
-            <Box sx={codeContainerSx}>
-              <Box
-                sx={{
-                  display: codeContainerOpen ? "block" : "none",
-                  width: 350,
-                  height: 350,
-                  bgcolor: "background.main",
-                  borderRadius: 5,
-                  overflow: "hidden",
-                }}
+            <Box
+              sx={{
+                width: 350,
+                height: 1,
+                borderRadius: 5,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <TypeCodeContainer
+                fileName={fileName}
+                codeContainerOpen={codeContainerOpen}
+                onCodeContainerHandler={onCodeContainerToggler}
               >
-                <TypeCodeContainer
-                  fileName={fileName}
-                  codeContainerOpen={codeContainerOpen}
-                  onCodeContainerHandler={onCodeContainerHandler}
-                >
-                  <CustomListItem color="red.main" count={1}>
-                    <Typography ref={firstLineEl}>
-                      [ Amirreza Mofared ]
-                    </Typography>
-                  </CustomListItem>
-                  <CustomListItem color="green.main" count={2}>
-                    <Typography ref={secondLineEl}>Web Deveolper</Typography>
-                  </CustomListItem>
-                  <CustomListItem color="pink.main" count={3}>
-                    <Typography ref={thiredLineEl}></Typography>
-                  </CustomListItem>
-                </TypeCodeContainer>
-              </Box>
+                <CustomListItem color="red.main" count={1}>
+                  <Typography ref={firstLineEl}></Typography>
+                </CustomListItem>
+                <CustomListItem color="green.main" count={2}>
+                  <Typography ref={secondLineEl}></Typography>
+                </CustomListItem>
+                <CustomListItem color="pink.main" count={3}>
+                  <Typography ref={thiredLineEl}></Typography>
+                </CustomListItem>
+              </TypeCodeContainer>
             </Box>
           </Grid>
         </Box>

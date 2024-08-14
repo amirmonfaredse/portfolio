@@ -1,17 +1,12 @@
 import { BarChart } from "@mui/x-charts";
 import { Button, Typography } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
-import theme from "../../../base/theme/theme";
+import { useContext } from "react";
+import context from "../../../../context/context";
 
-const gridSx1 = {
-  color: "orange.main",
-  display: "flex",
-  flexDirection: "column",
-  alignContent: "center",
-  justifyContent: "center",
-  gap: 2,
-};
 const BarOnChart = () => {
+  const { theme, themeMode } = useContext(context);
+
   return (
     <Grid
       container
@@ -24,8 +19,19 @@ const BarOnChart = () => {
         },
       }}
     >
-      <Grid  xs={12} lg={4} sx={gridSx1} textAlign="center">
-        <Button color="orange">
+      <Grid
+        xs={12}
+        lg={4}
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignContent: "center",
+          justifyContent: "center",
+          gap: 2,
+        }}
+        textAlign="center"
+      >
+        <Button sx={{ color: themeMode ? "background.main" : "orange.main" }}>
           <Typography variant="h5">نمره ی کل هوش هیجانی من : 62</Typography>
         </Button>
 
@@ -35,7 +41,7 @@ const BarOnChart = () => {
           </Typography>
         </Button>
       </Grid>{" "}
-      <Grid  xs={12} lg={8} sx={{ height: 200, width: 1 }}>
+      <Grid xs={12} lg={8} sx={{ height: 200, width: 1 }}>
         <BarChart
           xAxis={[
             {
@@ -55,7 +61,7 @@ const BarOnChart = () => {
             {
               data: [65, 58, 76, 37, 75],
               label: "نمره ی من",
-              color: theme.palette.darkBlue.main,
+              color: theme.palette.darkPurple.main,
             },
             {
               data: [62, 59, 63, 51, 65],

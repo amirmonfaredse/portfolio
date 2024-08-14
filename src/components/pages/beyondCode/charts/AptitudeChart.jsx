@@ -1,25 +1,36 @@
 import { BarChart } from "@mui/x-charts";
-import { Box, Button, Typography, Link } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
-import theme from "../../../base/theme/theme";
-const gridSx1 = {
-  flexWrap: {
-    xs: "wrap",
-    lg: "nowrap",
-  },
-};
-const gridSx2 = {
-  color: "orange.main",
-  display: "flex",
-  flexDirection: "column",
-  alignContent: "center",
-  justifyContent: "center",
-  gap: 2,
-};
+import { useContext } from "react";
+import context from "../../../../context/context";
 const AptitudeChart = () => {
+  const { theme } = useContext(context);
+
   return (
-    <Grid container gap={2} px={4} sx={gridSx1}>
-      <Grid  xs={12} lg={4} sx={gridSx2} textAlign="center">
+    <Grid
+      container
+      gap={2}
+      px={4}
+      sx={{
+        flexWrap: {
+          xs: "wrap",
+          lg: "nowrap",
+        },
+      }}
+    >
+      <Grid
+        xs={12}
+        lg={4}
+        sx={{
+          color: "orange.main",
+          display: "flex",
+          flexDirection: "column",
+          alignContent: "center",
+          justifyContent: "center",
+          gap: 2,
+        }}
+        textAlign="center"
+      >
         <Button variant="outlined" color="purple">
           <Typography variant="h6" color="purple.main">
             دانلود تفسیر کامل از سایت جاب ویژن
@@ -27,7 +38,6 @@ const AptitudeChart = () => {
         </Button>
       </Grid>
       <Grid
-        
         xs={12}
         lg={8}
         sx={{

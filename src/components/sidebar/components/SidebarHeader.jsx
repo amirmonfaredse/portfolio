@@ -1,6 +1,8 @@
 import { Avatar, Box, Link, Typography } from "@mui/material";
-import AvatarImg from "../../../assets/images/Avatar.jpg";
+import AvatarImg from "../../../assets/images/SecondAVATAR.jpg"
 import { Telegram, Instagram, GitHub, LinkedIn } from "@mui/icons-material";
+import { useContext } from "react";
+import context from "../../../context/context";
 const avatarSx1 = {
   height: 150,
   width: 150,
@@ -9,27 +11,38 @@ const avatarSx1 = {
 };
 
 const SideberHeader = () => {
+  const { themeMode } = useContext(context);
   return (
     <>
       <Avatar src={AvatarImg} sx={avatarSx1}>
         AM
       </Avatar>
-      <Typography variant="h6" sx={{ color: "purple.main" }}>
+      <Typography
+        variant="h6"
+        sx={{ color: themeMode ? "background.main" : "purple.main" }}
+      >
         امیررضا منفرد
       </Typography>
-      <Typography variant="caption" sx={{ color: "pink.main" }}>
+      <Typography
+        variant="caption"
+        sx={{ color: themeMode ? "background.main" : "purple.main" }}
+      >
         توسعه دهنده JS
       </Typography>
       <Box sx={{ mt: 2 }}>
         <Link href="https://t.me/amirrezamnf" rel="noreferrer" target="_blank">
-          <Telegram sx={{ color: "orange.main", mx: 1 }} />
+          <Telegram
+            sx={{ color: themeMode ? "background.main" : "purple.main", mx: 1 }}
+          />
         </Link>
         <Link
           href="https://www.instagram.com/a.reza.m.s/"
           rel="noreferrer"
           target="_blank"
         >
-          <Instagram sx={{ color: "orange.main", mx: 1 }} />
+          <Instagram
+            sx={{ color: themeMode ? "background.main" : "purple.main", mx: 1 }}
+          />
         </Link>
         <Link
           href="https://www.instagram.com/a.reza.m.s/"
@@ -37,14 +50,18 @@ const SideberHeader = () => {
           target="_blank"
         ></Link>
         <Link href="https://www.linkedin.com/" rel="noreferrer" target="_blank">
-          <LinkedIn sx={{ color: "orange.main", mx: 1 }} />
+          <LinkedIn
+            sx={{ color: themeMode ? "background.main" : "purple.main", mx: 1 }}
+          />
         </Link>
         <Link
           href="https://github.com/amirmonfaredse"
           rel="noreferrer"
           target="_blank"
         >
-          <GitHub sx={{ color: "orange.main", mx: 1 }} />
+          <GitHub
+            sx={{ color: themeMode ? "background.main" : "purple.main", mx: 1 }}
+          />
         </Link>
       </Box>
     </>

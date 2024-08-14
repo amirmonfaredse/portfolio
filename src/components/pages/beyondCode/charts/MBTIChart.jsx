@@ -1,23 +1,11 @@
 import { BarChart } from "@mui/x-charts/BarChart";
-import theme from "../../../base/theme/theme";
-import { Box, Button, Typography, Link } from "@mui/material";
+import { Button, Typography, Link } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
-const gridSx1 = {
-  color: "orange.main",
-  display: "flex",
-  flexDirection: "column",
-  alignContent: "center",
-  justifyContent: "center",
-  gap: 2,
-};
-const barChartSx = {
-  "& .MuiBarElement-root": {
-    "& .MuiBarLabel-root": {
-      color: "background.main",
-    },
-  },
-};
+import { useContext } from "react";
+import context from "../../../../context/context";
 const MBTIChart = () => {
+  const { theme, themeMode } = useContext(context);
+
   return (
     <Grid
       container
@@ -30,8 +18,20 @@ const MBTIChart = () => {
         },
       }}
     >
-      <Grid  xs={12} lg={6} sx={gridSx1} textAlign="center">
-        <Button color="orange">
+      <Grid
+        xs={12}
+        lg={6}
+        sx={{
+          color: "orange.main",
+          display: "flex",
+          flexDirection: "column",
+          alignContent: "center",
+          justifyContent: "center",
+          gap: 2,
+        }}
+        textAlign="center"
+      >
+        <Button sx={{ color: themeMode ? "background.main" : "orange.main" }}>
           <Typography variant="h5">ESTJ</Typography>
         </Button>
         <Link
@@ -51,9 +51,15 @@ const MBTIChart = () => {
           </Typography>
         </Button>
       </Grid>
-      <Grid  xs={12} lg={6} sx={{ height: 200, width: 1 }}>
+      <Grid xs={12} lg={6} sx={{ height: 200, width: 1 }}>
         <BarChart
-          sx={barChartSx}
+          sx={{
+            "& .MuiBarElement-root": {
+              "& .MuiBarLabel-root": {
+                color: "background.main",
+              },
+            },
+          }}
           barLabel="value"
           xAxis={[
             {

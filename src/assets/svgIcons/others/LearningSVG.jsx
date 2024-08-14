@@ -2,7 +2,7 @@ import { SvgIcon } from "@mui/material";
 
 const LearningSVG = () => {
   return (
-    <SvgIcon sx={{fontSize : 50}}>
+    <SvgIcon sx={{ fontSize: 50 }}>
       <svg
         version="1.1"
         id="Layer_1"

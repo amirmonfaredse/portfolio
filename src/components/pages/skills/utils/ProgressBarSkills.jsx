@@ -1,5 +1,7 @@
+import { Suspense, useContext, useEffect, useState } from "react";
 import { Box, LinearProgress, Typography } from "@mui/material";
-import { useEffect, useState } from "react";
+import Loading from "../../../utils/Loading";
+import context from "../../../../context/context";
 const boxSx1 = {
   display: "flex",
   justifyContent: "center",
@@ -13,6 +15,7 @@ const boxSx2 = {
   flexDirection: "row-reverse",
 };
 const ProgressBarSkills = ({ linearValue, icon }) => {
+  const { themeMode } = useContext(context);
   const [progress, setProgress] = useState(0);
   useEffect(() => {
     const timer = setInterval(() => {
@@ -25,7 +28,7 @@ const ProgressBarSkills = ({ linearValue, icon }) => {
     });
   }, []);
   return (
-    <>
+    <Suspense fallback={<Loading />}>
       <Box sx={boxSx1}>
         <Box sx={{ width: "85%", mr: 1 }}>
           <LinearProgress
@@ -39,14 +42,14 @@ const ProgressBarSkills = ({ linearValue, icon }) => {
           {icon}
           <Typography
             variant="body2"
-            sx={{ color: "pink.main" }}
+            sx={{ color: themeMode ? "background.main" : "pink.main" }}
             alignSelf="center"
           >
             {`${Math.round(progress)}%`}
           </Typography>
         </Box>
       </Box>
-    </>
+    </Suspense>
   );
 };
 export default ProgressBarSkills;

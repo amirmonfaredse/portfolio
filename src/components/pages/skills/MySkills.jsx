@@ -2,6 +2,7 @@ import {
   SelfImprovementRounded,
   Brush,
   ConstructionRounded,
+  FoundationRounded,
 } from "@mui/icons-material";
 import { ProgressBarSkills } from "..";
 
@@ -13,6 +14,11 @@ import {
   BootstrapToolTip,
   MuiToolTip,
   GithubToolTip,
+  NextToolTip,
+  CleanCodeToolTip,
+  OOPToolTip,
+  VSCodeToolTip,
+  PostmanToolTip,
 } from "./ToolTips";
 import Grid from "@mui/material/Unstable_Grid2";
 import CustomDivider from "../../utils/CustomDivider";
@@ -44,7 +50,9 @@ const MySkills = () => {
             <ProgressBarSkills linearValue={75} icon={<CssToolTip />} />
             <ProgressBarSkills linearValue={70} icon={<JsToolTip />} />
             <ProgressBarSkills linearValue={60} icon={<ReactToolTip />} />
+            <ProgressBarSkills linearValue={20} icon={<NextToolTip />} />
             <CustomDivider
+              bgColor="red.main"
               title="UI طراحی"
               icon={
                 <Brush
@@ -60,6 +68,7 @@ const MySkills = () => {
             <ProgressBarSkills linearValue={60} icon={<MuiToolTip />} />
 
             <CustomDivider
+              bgColor="green.main"
               title="ابزار ها"
               icon={
                 <ConstructionRounded
@@ -71,6 +80,21 @@ const MySkills = () => {
             />
 
             <ProgressBarSkills linearValue={30} icon={<GithubToolTip />} />
+            <ProgressBarSkills linearValue={50} icon={<VSCodeToolTip />} />
+            <ProgressBarSkills linearValue={40} icon={<PostmanToolTip />} />
+            <CustomDivider
+              bgColor="darkPurple.main"
+              title="مفاهیم"
+              icon={
+                <FoundationRounded
+                  color="darkPurple"
+                  sx={{ fontSize: 30, color: "orange.main" }}
+                />
+              }
+              color="orange.main"
+            />
+            <ProgressBarSkills linearValue={60} icon={<CleanCodeToolTip />} />
+            <ProgressBarSkills linearValue={40} icon={<OOPToolTip />} />
           </Grid>
         </Grid>
       </Suspense>

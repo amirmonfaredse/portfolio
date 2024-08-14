@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import { Suspense, useContext } from "react";
 
 // MUI
 import { Box, Button, Card, CardActions, Container } from "@mui/material";
@@ -14,9 +14,11 @@ import { userSchema } from "./validation/userSchema";
 import { useFormik } from "formik";
 
 import CustomField from "../../utils/CustomField";
-import { gridSx1 } from "./data/sxData";
 import Socials from "./components/Socials";
+import Loading from "../../utils/Loading";
+import context from "../../../context/context";
 const ContactMeForm = () => {
+  const { themeMode } = useContext(context);
   const userInitailValue = {
     fullName: "",
     email: "",
@@ -31,18 +33,29 @@ const ContactMeForm = () => {
     validationSchema: userSchema,
   });
   return (
-    <Suspense>
+    <Suspense fallback={<Loading />}>
       <Container
         sx={{ direction: "ltr", my: 3, display: "flex", flexWrap: "wrap" }}
       >
         <Grid xs={12} lg={6} px={2} my={4}>
           <form autoComplete="off" onSubmit={formik.handleSubmit}>
-            <Card sx={{ bgcolor: "darkPurple.main", p: 2 }}>
-              <Box sx={{ my: 3 }}>
+            <Card
+              sx={{
+                bgcolor: themeMode ? "purple.main" : "currentLine.main",
+                p: 2,
+              }}
+            >
+              <Box sx={{ my: 1 }}>
                 <CustomField
                   label="نام"
                   name="fullName"
-                  icon={<Person2Rounded color="pink" />}
+                  icon={
+                    <Person2Rounded
+                      sx={{
+                        color: themeMode ? "background.main" : "pink.main",
+                      }}
+                    />
+                  }
                   helperText={
                     formik.touched.fullName ? formik.errors.fullName : null
                   }
@@ -53,23 +66,35 @@ const ContactMeForm = () => {
                   onChange={formik.handleChange}
                 />
               </Box>
-              <Box sx={{ my: 3 }}>
+              <Box sx={{ my: 1 }}>
                 <CustomField
                   type="email"
                   label="ایمیل"
                   name="email"
-                  icon={<AlternateEmailRounded color="pink" />}
+                  icon={
+                    <AlternateEmailRounded
+                      sx={{
+                        color: themeMode ? "background.main" : "pink.main",
+                      }}
+                    />
+                  }
                   helperText={formik.touched.email ? formik.errors.email : null}
                   error={Boolean(formik.touched.email && formik.errors.email)}
                   value={formik.values?.email}
                   onChange={formik.handleChange}
                 />
               </Box>
-              <Box sx={{ my: 3 }}>
+              <Box sx={{ my: 1 }}>
                 <CustomField
                   label="موضوع"
                   name="subject"
-                  icon={<SubjectRounded color="pink" />}
+                  icon={
+                    <SubjectRounded
+                      sx={{
+                        color: themeMode ? "background.main" : "pink.main",
+                      }}
+                    />
+                  }
                   helperText={
                     formik.touched.subject ? formik.errors.subject : null
                   }
@@ -80,7 +105,7 @@ const ContactMeForm = () => {
                   onChange={formik.handleChange}
                 />
               </Box>
-              <Box sx={{ my: 3 }}>
+              <Box sx={{ my: 1 }}>
                 <CustomField
                   label="متن پیام"
                   name="textArea"
@@ -111,7 +136,15 @@ const ContactMeForm = () => {
             </Card>
           </form>
         </Grid>
-        <Grid xs={12} lg={6} sx={gridSx1}>
+        <Grid
+          xs={12}
+          lg={6}
+          sx={{
+            display: "felx",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
           <Socials />
         </Grid>
       </Container>

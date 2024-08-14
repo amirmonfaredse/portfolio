@@ -1,16 +1,11 @@
 import { BarChart } from "@mui/x-charts";
-import { Box, Button, Typography, Link } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
-import theme from "../../../base/theme/theme";
-const gridSx1 = {
-  color: "orange.main",
-  display: "flex",
-  flexDirection: "column",
-  alignContent: "center",
-  justifyContent: "center",
-  gap: 2,
-};
+import { useContext } from "react";
+import context from "../../../../context/context";
 const NeoChart = () => {
+  const { theme } = useContext(context);
+
   return (
     <Grid
       container
@@ -23,14 +18,26 @@ const NeoChart = () => {
         },
       }}
     >
-      <Grid  xs={12} lg={4} sx={gridSx1} textAlign="center">
+      <Grid
+        xs={12}
+        lg={4}
+        sx={{
+          color: "orange.main",
+          display: "flex",
+          flexDirection: "column",
+          alignContent: "center",
+          justifyContent: "center",
+          gap: 2,
+        }}
+        textAlign="center"
+      >
         <Button variant="outlined" color="purple">
           <Typography variant="h6" color="purple.main">
             دانلود تفسیر کامل از سایت جاب ویژن
           </Typography>
         </Button>
       </Grid>
-      <Grid  xs={12} lg={8} sx={{ height: 200, width: 1 }}>
+      <Grid xs={12} lg={8} sx={{ height: 200, width: 1 }}>
         <BarChart
           xAxis={[
             {
@@ -50,11 +57,11 @@ const NeoChart = () => {
             {
               data: [90, 50, 67, 53, 47],
               label: "نمره ی من",
-              color: theme.palette.green.main,
+              color: theme.palette.green,
             },
             {
               data: [87, 76, 75, 60, 40],
-              color: theme.palette.darkPurple.main,
+              color: theme.palette.green,
               label: "میانگین",
             },
           ]}

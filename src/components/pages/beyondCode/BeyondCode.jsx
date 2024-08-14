@@ -1,8 +1,14 @@
-import { Box, Button } from "@mui/material";
-import Grid from "@mui/material/Unstable_Grid2";
-import { MenuBook, SignalCellularAlt } from "@mui/icons-material";
+import { Suspense, useContext } from "react";
+import Context from "../../../context/context";
 
-import { Suspense, useState } from "react";
+import { Box, Button, Typography } from "@mui/material";
+import Grid from "@mui/material/Unstable_Grid2";
+import {
+  BeenhereRounded,
+  MenuBook,
+  SignalCellularAlt,
+} from "@mui/icons-material";
+
 import CustomDivider from "../../utils/CustomDivider";
 
 import {
@@ -18,16 +24,9 @@ import {
 import { Helmet } from "react-helmet-async";
 import Loading from "../../utils/Loading";
 
-import { btnSx1, gridSx1, gridSx2 } from "./data/sxData";
 import { softSkillsData } from "./data/softSkillsData";
 const BeyondCode = () => {
-  const [openDialog, setOpenDialog] = useState(false);
-  const [dialogData, setDialogData] = useState({});
-  const onClickDialog = () => {
-    setOpenDialog(!openDialog);
-  };
-
-  
+  const { setDialogData, onDialogToggler, themeMode } = useContext(Context);
 
   return (
     <>
@@ -43,7 +42,22 @@ const BeyondCode = () => {
               bgColor="orange.main"
               color="darkPurple.main"
             />
-            <Grid container sx={gridSx1}>
+            <Grid
+              container
+              sx={{
+                width: {
+                  sm: 1,
+                  lg: "60%",
+                },
+                mx: {
+                  sm: "none",
+                  lg: "auto",
+                },
+                display: "flex",
+                justifyContent: "center",
+                my: 8,
+              }}
+            >
               {softSkillsData.map((data) => (
                 <Grid
                   xs={6}
@@ -54,10 +68,21 @@ const BeyondCode = () => {
                   <Button
                     id={data.id}
                     onClick={() => {
-                      onClickDialog();
+                      onDialogToggler();
                       setDialogData(data);
                     }}
-                    sx={btnSx1}
+                    sx={{
+                      width: 140,
+                      p: 2,
+                      color: themeMode ? "background.main" : "foreground.main",
+
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      gap: 2,
+                      borderRadius: "50%",
+                    }}
                   >
                     {data.icon || null}
                     {data.name}
@@ -65,32 +90,71 @@ const BeyondCode = () => {
                 </Grid>
               ))}
             </Grid>
-            <ModalDialog
-              openDialog={openDialog}
-              dialogData={dialogData}
-              onClickDialog={onClickDialog}
-            />
+            <ModalDialog />
             <CustomDivider
               icon={<SignalCellularAlt color="darkPurple" />}
               title="تست های شخصیت"
               bgColor="purple.main"
               color="background.main"
             />
-            <Grid sx={gridSx2}>
+            <Grid
+              sx={{
+                width: 1,
+                my: 8,
+                px: 5,
+                display: "flex",
+                justifyContent: "left",
+              }}
+            >
               <Grid xs={12}>
-                <CustomAccordion title="تست هوش هیجانی Bar-On">
+                <CustomAccordion
+                  title={
+                    <Typography>
+                      تست هوش هیجانی Bar-On
+                      <BeenhereRounded color="green" fontSize="2" />
+                    </Typography>
+                  }
+                >
                   <BarOnChart />
                 </CustomAccordion>
-                <CustomAccordion title="تست شخصیت شناسی MBTI">
+                <CustomAccordion
+                  title={
+                    <Typography>
+                      تست شخصیت شناسی MBTI
+                      <BeenhereRounded color="green" fontSize="2" />
+                    </Typography>
+                  }
+                >
                   <MBTIChart />
                 </CustomAccordion>
-                <CustomAccordion title="تست شخصیت شناسی NEO">
+                <CustomAccordion
+                  title={
+                    <Typography>
+                      تست شخصیت شناسی NEO
+                      {/* <BeenhereRounded color="green" fontSize="2" /> */}
+                    </Typography>
+                  }
+                >
                   <NeoChart />
                 </CustomAccordion>
-                <CustomAccordion title="تست هوش های چندگانه">
+                <CustomAccordion
+                  title={
+                    <Typography>
+                      تست هوش های چندگانه
+                      {/* <BeenhereRounded color="green" fontSize="2" /> */}
+                    </Typography>
+                  }
+                >
                   <AptitudeChart />
                 </CustomAccordion>
-                <CustomAccordion title="تیپ سنجی شغلی Holland">
+                <CustomAccordion
+                  title={
+                    <Typography>
+                      تست تیپ سنجی شغلی Holland
+                      <BeenhereRounded color="green" fontSize="2" />
+                    </Typography>
+                  }
+                >
                   <HollandChart />
                 </CustomAccordion>
               </Grid>

@@ -7,7 +7,7 @@ import {
 } from "../../../../assets/svgIcons";
 import CMAIMG from "../../../../assets/images/project/Cma.png";
 
-export const contactManagerData = [
+export const projectDatas = [
   {
     id: 1,
     image: CMAIMG,
